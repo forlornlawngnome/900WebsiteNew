@@ -1,0 +1,29 @@
+.menu input, .menu a, .menu button {
+    color: #CACACA !important;
+}
+.is-dropdown-submenu-item  a{
+    color: black !important;
+}
+a:hover, a:focus {
+  color: #8A8A8A !important;
+}
+.dropdown.menu>li.is-dropdown-submenu-parent>a::after {
+    border-color: #CACACA transparent transparent !important;
+}
+
+div#right-sidebar{
+  position:absolute;
+  top:100px;
+  right:0;
+  width:50px;
+  background-color: black;
+  border-radius: 20px 0px 0px 20px;
+ }
+ @media screen{
+  body>div#right-sidebar{
+   position:fixed;
+  }
+ }
+ * html body{
+  overflow:hidden;
+ } 
