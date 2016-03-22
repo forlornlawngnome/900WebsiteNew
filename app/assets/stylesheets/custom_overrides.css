@@ -10,6 +10,11 @@ a:hover, a:focus {
 .dropdown.menu>li.is-dropdown-submenu-parent>a::after {
     border-color: #CACACA transparent transparent !important;
 }
+.callout {
+    margin-top: 2rem !important ;
+    padding: 0 1rem 1rem 1rem !important;
+}
+
 
 .background {
     background-image: url("http://www.clker.com/cliparts/a/L/s/K/b/W/zebra-background.svg") ;
@@ -24,6 +29,33 @@ a:hover, a:focus {
      padding: 0;
      margin: 0;
      z-index:-1;
+}
+
+h1.titleFont,
+h2.titleFont,
+h3.titleFont,
+h4.titleFont,
+h5.titleFont,
+h6.titleFont {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+h1 small.dark,
+h2 small.dark,
+h3 small.dark,
+h4 small.dark,
+h5 small.dark,
+h6 small.dark {
+  font-weight: normal;
+  line-height: 1;
+  color: #645E5E;
+}
+h1 small.smaller {
+  font-size: 22px;
+}
+
+div#titlebar{
+	background-color: #0a0a0a;
 }
 
 
