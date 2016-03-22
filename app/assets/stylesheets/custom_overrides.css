@@ -15,9 +15,14 @@ a:hover, a:focus {
     padding: 0 1rem 1rem 1rem !important;
 }
 
+.footer{
+	background-color: #0a0a0a;
+	color: white;
+	max-width: 100%!important;
+}
 
 .background {
-    background-image: url("http://www.clker.com/cliparts/a/L/s/K/b/W/zebra-background.svg") ;
+    background-image: url('/assets/zebra-background.svg') ;
     width: 100%;
      top: 0;
      left: 0;
