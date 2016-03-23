@@ -1,66 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+		<title>
+			<%= content_for?(:title) ? yield(:title) : "Untitled" %>
+		</title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+		<%= stylesheet_link_tag    "application" %>
+		<%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	</head>
 
-  <body>
-	  	<div class="background">
+	<body>
+		<div class="background">
 		</div>
-		  <%=render "/layouts/top_nav"%>
-		  <%=render "/layouts/side_nav"%>
-		  
-		  <div class="row align-center">
-			  <div class="medium-10 columns">
-			  	<%= yield %>
+		<div>
+			<%=render "/layouts/top_nav"%>
+			<%=render "/layouts/side_nav"%>
+		</div>
+
+		<div class="row align-center">
+			<div class="medium-10 columns">
+				<%= yield %>
 			</div>
-		  </div>
-		  <div class="row footer align-center">
-			  <div class="small-1 columns">
-			  </div>
-			  <div class="small-10 columns ">
-				  <div class="row">
-					  <div class="columns">
-						  <h5><u>Social Media</u></h5>
-						  <dl>
-						    <dt>Facebook</dt>
-						    <dt>Twitter</dt>
-							<dt>Photos</dt>
-							<dt>You-Tube</dt>
-							<dt>Instagram</dt>
-							<dt>Google+</dt>
-						  </dl>
-					  </div>
-					  <div class="columns">
-						  <h5><u>Media</u></h5>
-						  <dl>
-						    <dt>News</dt>
-						    <dt>Photos</dt>
-							<dt>Videos</dt>
-						  </dl>
-					  </div>
-					  <div class="columns">
-						  <h5><u>Website</u></h5>
-						  <dl>
-						    <dt>Sign Up</dt>
-						    <dt>Sign In</dt>
-							<dt>Log Out</dt>
-							<dt>About</dt>
-						  </dl>
-					  </div>
-					  <div class="columns">
-						  <h5><u>Sponsors</u></h5>
-						  <3 Sponsors
-					  </div>
-				  </div>
-			  </div>
-		  </div>
-  </body>
+		</div>
+		<%=render "/layouts/footer"%>
+	    <script>
+	    	$(document).foundation();
+	    </script>
+	</body>
 </html>
