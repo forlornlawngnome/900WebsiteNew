@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sponsor Levels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sponsor_levels.each do |sponsor_level| %>
+      <tr>
+        <td><%= sponsor_level.name %></td>
+        <td><%= link_to 'Show', sponsor_level %></td>
+        <td><%= link_to 'Edit', edit_sponsor_level_path(sponsor_level) %></td>
+        <td><%= link_to 'Destroy', sponsor_level, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sponsor level', new_sponsor_level_path %>
