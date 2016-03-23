@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= f.label :sponsor_id %><br>
-    <%= f.text_field :sponsor_id %>
+	<%= f.collection_select(:sponsor_id, Sponsor.all, :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
   </div>
   <div class="field">
     <%= f.label :year_id %><br>
-    <%= f.text_field :year_id %>
+	<%= f.collection_select(:year_id, Year.all, :id, :end_date, {:prompt=>true}, {:class=>'my-custom-class'}) %>
   </div>
   <div class="field">
     <%= f.label :sponsor_level_id %><br>
-    <%= f.text_field :sponsor_level_id %>
+	<%= f.collection_select(:sponsor_level_id, SponsorLevel.all, :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
   </div>
   <div class="actions">
     <%= f.submit %>
