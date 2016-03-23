@@ -69,6 +69,6 @@ class SocialMediaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def social_medium_params
-      params.require(:social_medium).permit(:name, :icon, :url)
+      params.require(:social_medium).permit(:name, :icon, :url, :order)
     end
 end

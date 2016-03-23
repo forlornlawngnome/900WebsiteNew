@@ -18,7 +18,7 @@ class SocialMediaControllerTest < ActionController::TestCase
 
   test "should create social_medium" do
     assert_difference('SocialMedium.count') do
-      post :create, social_medium: { icon: @social_medium.icon, name: @social_medium.name, url: @social_medium.url }
+      post :create, social_medium: { icon: @social_medium.icon, name: @social_medium.name, order: @social_medium.order, url: @social_medium.url }
     end
 
     assert_redirected_to social_medium_path(assigns(:social_medium))
@@ -35,7 +35,7 @@ class SocialMediaControllerTest < ActionController::TestCase
   end
 
   test "should update social_medium" do
-    patch :update, id: @social_medium, social_medium: { icon: @social_medium.icon, name: @social_medium.name, url: @social_medium.url }
+    patch :update, id: @social_medium, social_medium: { icon: @social_medium.icon, name: @social_medium.name, order: @social_medium.order, url: @social_medium.url }
     assert_redirected_to social_medium_path(assigns(:social_medium))
   end
 

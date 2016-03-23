@@ -4,6 +4,7 @@ class CreateSocialMedia < ActiveRecord::Migration
       t.string :name
       t.string :icon
       t.text :url
+      t.integer :order
 
       t.timestamps null: false
     end

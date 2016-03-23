@@ -8,6 +8,7 @@
       <th>Name</th>
       <th>Icon</th>
       <th>Url</th>
+      <th>Order</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= social_medium.name %></td>
         <td><%= social_medium.icon %></td>
         <td><%= social_medium.url %></td>
+        <td><%= social_medium.order %></td>
         <td><%= link_to 'Show', social_medium %></td>
         <td><%= link_to 'Edit', edit_social_medium_path(social_medium) %></td>
         <td><%= link_to 'Destroy', social_medium, method: :delete, data: { confirm: 'Are you sure?' } %></td>

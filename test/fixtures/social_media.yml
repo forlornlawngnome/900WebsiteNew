@@ -4,8 +4,10 @@ one:
   name: MyString
   icon: MyString
   url: MyText
+  order: 1
 
 two:
   name: MyString
   icon: MyString
   url: MyText
+  order: 1
