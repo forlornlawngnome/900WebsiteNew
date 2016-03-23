@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @person.name %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @person.role.name rescue "" %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @person.image.url %>
+</p>
+
+<p>
+  <strong>Year start:</strong>
+  <%= @person.year_start %>
+</p>
+
+<p>
+  <strong>Year end:</strong>
+  <%= @person.year_end %>
+</p>
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>
