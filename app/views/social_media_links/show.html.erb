@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @social_media_link.name %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @social_media_link.icon %>
+</p>
+
+<p>
+  <strong>Media url:</strong>
+  <%= @social_media_link.media_url %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @social_media_link.order %>
+</p>
+
+<%= link_to 'Edit', edit_social_media_link_path(@social_media_link) %> |
+<%= link_to 'Back', social_media_links_path %>

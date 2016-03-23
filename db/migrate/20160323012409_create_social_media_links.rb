@@ -1,9 +1,9 @@
-class CreateSocialMedia < ActiveRecord::Migration
+class CreateSocialMediaLinks < ActiveRecord::Migration
   def change
-    create_table :social_media do |t|
+    create_table :social_media_links do |t|
       t.string :name
       t.string :icon
-      t.text :url
+      t.text :media_url
       t.integer :order
 
       t.timestamps null: false

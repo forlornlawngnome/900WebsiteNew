@@ -1,5 +1,8 @@
 <div id="right-sidebar">
 	 <ul class="menu vertical">
+		 <%SocialMedia.order("order").each do |media|%>
+		 	<li><a href=<%=media.url%> target="_blank"><span><%=fa_icon media.icon%></span></a></li>
+		 <%end%>
 	   <li><a href="#"><span><%=fa_icon "facebook"%></span></a></li>
 	   <li><a href="#"><span><%=fa_icon "twitter"%></span></a></li>
 	   <li><a href="#"><span><%=fa_icon "camera"%></span></a></li>

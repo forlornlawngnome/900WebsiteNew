@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SocialMediumTest < ActiveSupport::TestCase
+class SocialMediaLinkTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

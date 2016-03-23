@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :social_media
+  resources :social_media_links
   resources :post_contents
   resources :content_types
   resources :categories_posts
