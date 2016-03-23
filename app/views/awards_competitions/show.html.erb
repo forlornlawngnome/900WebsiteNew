@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Competition:</strong>
+  <%= @awards_competition.competition %>
+</p>
+
+<p>
+  <strong>Award:</strong>
+  <%= @awards_competition.award %>
+</p>
+
+<p>
+  <strong>Blurb:</strong>
+  <%= @awards_competition.blurb %>
+</p>
+
+<%= link_to 'Edit', edit_awards_competition_path(@awards_competition) %> |
+<%= link_to 'Back', awards_competitions_path %>

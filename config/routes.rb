@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :awards_competitions
   resources :awards
   resources :competitions
   resources :game_videos

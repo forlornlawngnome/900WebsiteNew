@@ -1,0 +1,2 @@
+module AwardsCompetitionsHelper
+end
