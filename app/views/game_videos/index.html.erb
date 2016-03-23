@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Game Videos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>Title</th>
+      <th>Link</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @game_videos.each do |game_video| %>
+      <tr>
+        <td><%= game_video.game %></td>
+        <td><%= game_video.title %></td>
+        <td><%= game_video.link %></td>
+        <td><%= link_to 'Show', game_video %></td>
+        <td><%= link_to 'Edit', edit_game_video_path(game_video) %></td>
+        <td><%= link_to 'Destroy', game_video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Game video', new_game_video_path %>
