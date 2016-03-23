@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year_id: 
+  date_published: 2016-03-22
+  title: MyString
+  active: false
+
+two:
+  year_id: 
+  date_published: 2016-03-22
+  title: MyString
+  active: false
