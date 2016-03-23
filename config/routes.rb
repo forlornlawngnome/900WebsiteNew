@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sponsor_years
   resources :sponsors
   resources :sponsor_levels
   resources :awards_competitions

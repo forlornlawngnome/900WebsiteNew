@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sponsor:</strong>
+  <%= @sponsor_year.sponsor %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @sponsor_year.year %>
+</p>
+
+<p>
+  <strong>Sponsor level:</strong>
+  <%= @sponsor_year.sponsor_level %>
+</p>
+
+<%= link_to 'Edit', edit_sponsor_year_path(@sponsor_year) %> |
+<%= link_to 'Back', sponsor_years_path %>

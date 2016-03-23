@@ -1,0 +1,29 @@
+<%= form_for(@sponsor_year) do |f| %>
+  <% if @sponsor_year.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sponsor_year.errors.count, "error") %> prohibited this sponsor_year from being saved:</h2>
+
+      <ul>
+      <% @sponsor_year.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sponsor_id %><br>
+    <%= f.text_field :sponsor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :year_id %><br>
+    <%= f.text_field :year_id %>
+  </div>
+  <div class="field">
+    <%= f.label :sponsor_level_id %><br>
+    <%= f.text_field :sponsor_level_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

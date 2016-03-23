@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sponsor_id: 
+  year_id: 
+  sponsor_level_id: 
+
+two:
+  sponsor_id: 
+  year_id: 
+  sponsor_level_id: 

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sponsor Years</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sponsor</th>
+      <th>Year</th>
+      <th>Sponsor level</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sponsor_years.each do |sponsor_year| %>
+      <tr>
+        <td><%= sponsor_year.sponsor %></td>
+        <td><%= sponsor_year.year %></td>
+        <td><%= sponsor_year.sponsor_level %></td>
+        <td><%= link_to 'Show', sponsor_year %></td>
+        <td><%= link_to 'Edit', edit_sponsor_year_path(sponsor_year) %></td>
+        <td><%= link_to 'Destroy', sponsor_year, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sponsor year', new_sponsor_year_path %>
