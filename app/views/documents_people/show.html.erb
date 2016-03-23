@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @documents_person.person %>
+</p>
+
+<p>
+  <strong>Document:</strong>
+  <%= @documents_person.document %>
+</p>
+
+<%= link_to 'Edit', edit_documents_person_path(@documents_person) %> |
+<%= link_to 'Back', documents_people_path %>

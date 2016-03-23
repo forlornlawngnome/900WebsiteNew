@@ -1,0 +1,2 @@
+module DocumentsPeopleHelper
+end

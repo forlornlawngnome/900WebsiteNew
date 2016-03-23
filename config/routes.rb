@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :documents_people
   resources :documents
   resources :categories
   resources :sponsor_years
