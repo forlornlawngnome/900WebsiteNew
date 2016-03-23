@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :post_contents
   resources :content_types
   resources :categories_posts
   resources :posts

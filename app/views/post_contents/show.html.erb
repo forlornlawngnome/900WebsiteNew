@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @post_content.post %>
+</p>
+
+<p>
+  <strong>Content type:</strong>
+  <%= @post_content.content_type %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post_content.body %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @post_content.order %>
+</p>
+
+<%= link_to 'Edit', edit_post_content_path(@post_content) %> |
+<%= link_to 'Back', post_contents_path %>

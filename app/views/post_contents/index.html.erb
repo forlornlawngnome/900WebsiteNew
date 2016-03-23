@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Post Contents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Post</th>
+      <th>Content type</th>
+      <th>Body</th>
+      <th>Order</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @post_contents.each do |post_content| %>
+      <tr>
+        <td><%= post_content.post %></td>
+        <td><%= post_content.content_type %></td>
+        <td><%= post_content.body %></td>
+        <td><%= post_content.order %></td>
+        <td><%= link_to 'Show', post_content %></td>
+        <td><%= link_to 'Edit', edit_post_content_path(post_content) %></td>
+        <td><%= link_to 'Destroy', post_content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post content', new_post_content_path %>
