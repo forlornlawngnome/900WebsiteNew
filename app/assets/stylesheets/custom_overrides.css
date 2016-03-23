@@ -69,7 +69,7 @@ div#titlebar{
 
 
 div#right-sidebar{
-  position:absolute;
+  position:fixed;
   top:100px;
   right:0;
   width:50px;
