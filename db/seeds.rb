@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+SocialMediaLink.create([{name: 'Facebook', icon: 'facebook', media_url: 'https://www.facebook.com/The-Zebracorns-FRC-Team-900-152834158133099/', order: 1},
+  {name: 'Twitter', icon: 'twitter', media_url: 'https://www.facebook.com/The-Zebracorns-FRC-Team-900-152834158133099/', order: 2},
+  {name: 'Photos', icon: 'camera', media_url: 'https://plus.google.com/+FIRSTZebracorn/photos', order: 3},
+  {name: 'YouTube', icon: 'youtube-play', media_url: 'https://www.youtube.com/channel/UCd59no7grTqLIrGIagIk5Bw', order: 4},
+  {name: 'Google+', icon: 'google-plus', media_url: 'https://plus.google.com/+FIRSTZebracorn/posts', order: 6},
+  ])
+  
+SponsorLevel.create([{name: 'Institutional'}, {name: 'Gold'}, {name: 'Silver'}, {name: 'Bronze'}, ])
