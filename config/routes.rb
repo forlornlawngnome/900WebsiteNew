@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :robots
   resources :document_links
   resources :documents_people
   resources :documents
