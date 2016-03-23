@@ -1,6 +1,7 @@
 .menu input, .menu a, .menu button {
     color: #CACACA !important;
 }
+
 .is-dropdown-submenu-item  a{
     color: black !important;
 }
@@ -10,6 +11,21 @@ a:hover, a:focus {
 .dropdown.menu>li.is-dropdown-submenu-parent>a::after {
     border-color: #CACACA transparent transparent !important;
 }
+.is-drilldown-submenu-item a{
+	color: black !important;
+}
+.js-drilldown-back a{
+	color: black !important;
+}
+.menu-text a{
+color : white !important;
+padding: 0 !important;
+}
+.row .row {
+    margin-left: -1rem !important;
+    margin-right: -1rem !important;
+}
+
 .callout {
     margin-top: 2rem !important ;
     padding: 0 1rem 1rem 1rem !important;
@@ -84,3 +100,5 @@ div#right-sidebar{
  * html body{
   overflow:hidden;
  } 
+ 
+ 
