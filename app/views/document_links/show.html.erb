@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Document:</strong>
+  <%= @document_link.document %>
+</p>
+
+<p>
+  <strong>Doc link:</strong>
+  <%= @document_link.doc_link %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @document_link.name %>
+</p>
+
+<%= link_to 'Edit', edit_document_link_path(@document_link) %> |
+<%= link_to 'Back', document_links_path %>

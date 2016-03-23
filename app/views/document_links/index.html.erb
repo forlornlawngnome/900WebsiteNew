@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Document Links</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Document</th>
+      <th>Doc link</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @document_links.each do |document_link| %>
+      <tr>
+        <td><%= document_link.document %></td>
+        <td><%= document_link.doc_link %></td>
+        <td><%= document_link.name %></td>
+        <td><%= link_to 'Show', document_link %></td>
+        <td><%= link_to 'Edit', edit_document_link_path(document_link) %></td>
+        <td><%= link_to 'Destroy', document_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Document link', new_document_link_path %>
