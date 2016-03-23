@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323004922) do
+ActiveRecord::Schema.define(version: 20160323005503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20160323004922) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "categories_posts", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "categories_posts", ["category_id"], name: "index_categories_posts_on_category_id", using: :btree
+  add_index "categories_posts", ["post_id"], name: "index_categories_posts_on_post_id", using: :btree
+
   create_table "competitions", force: :cascade do |t|
     t.string   "name"
     t.date     "date"
@@ -49,6 +59,12 @@ ActiveRecord::Schema.define(version: 20160323004922) do
   end
 
   add_index "competitions", ["year_id"], name: "index_competitions_on_year_id", using: :btree
+
+  create_table "content_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "document_links", force: :cascade do |t|
     t.integer  "document_id"
@@ -113,6 +129,29 @@ ActiveRecord::Schema.define(version: 20160323004922) do
 
   add_index "people", ["role_id"], name: "index_people_on_role_id", using: :btree
 
+  create_table "post_contents", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "content_type_id"
+    t.text     "body"
+    t.integer  "order"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "post_contents", ["content_type_id"], name: "index_post_contents_on_content_type_id", using: :btree
+  add_index "post_contents", ["post_id"], name: "index_post_contents_on_post_id", using: :btree
+
+  create_table "posts", force: :cascade do |t|
+    t.integer  "year_id"
+    t.date     "date_published"
+    t.string   "title"
+    t.boolean  "active"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "posts", ["year_id"], name: "index_posts_on_year_id", using: :btree
+
   create_table "robots", force: :cascade do |t|
     t.string   "name"
     t.text     "descripton"
@@ -163,6 +202,8 @@ ActiveRecord::Schema.define(version: 20160323004922) do
 
   add_foreign_key "awards_competitions", "awards"
   add_foreign_key "awards_competitions", "competitions"
+  add_foreign_key "categories_posts", "categories"
+  add_foreign_key "categories_posts", "posts"
   add_foreign_key "competitions", "years"
   add_foreign_key "document_links", "documents"
   add_foreign_key "documents", "categories"
@@ -171,6 +212,9 @@ ActiveRecord::Schema.define(version: 20160323004922) do
   add_foreign_key "game_videos", "games"
   add_foreign_key "games", "years"
   add_foreign_key "people", "roles"
+  add_foreign_key "post_contents", "content_types"
+  add_foreign_key "post_contents", "posts"
+  add_foreign_key "posts", "years"
   add_foreign_key "sponsor_years", "sponsor_levels"
   add_foreign_key "sponsor_years", "sponsors"
   add_foreign_key "sponsor_years", "years"
