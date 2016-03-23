@@ -7,12 +7,9 @@
 				<div class="columns">
 					<h5><u>Social Media</u></h5>
 					<dl>
-						<dt>Facebook</dt>
-						<dt>Twitter</dt>
-						<dt>Photos</dt>
-						<dt>You-Tube</dt>
-						<dt>Instagram</dt>
-						<dt>Google+</dt>
+						<%SocialMediaLink.all.order(:order).each do |media|%>
+							<dt><a href=<%=media.media_url%> target="_blank"><span><%=media.name.titleize%></span></a></dt>
+						<%end%>
 					</dl>
 				</div>
 				<div class="columns">

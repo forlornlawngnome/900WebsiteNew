@@ -1,13 +1,7 @@
 <div id="right-sidebar">
 	 <ul class="menu vertical">
-		 <%SocialMedia.order("order").each do |media|%>
-		 	<li><a href=<%=media.url%> target="_blank"><span><%=fa_icon media.icon%></span></a></li>
+		 <%SocialMediaLink.all.order(:order).each do |media|%>
+		 	<li><a href=<%=media.media_url%> target="_blank"><span><%=fa_icon media.icon%></span></a></li>
 		 <%end%>
-	   <li><a href="#"><span><%=fa_icon "facebook"%></span></a></li>
-	   <li><a href="#"><span><%=fa_icon "twitter"%></span></a></li>
-	   <li><a href="#"><span><%=fa_icon "camera"%></span></a></li>
-	   <li><a href="#"><span><%=fa_icon "youtube-play"%></span></a></li>
-	   <li><a href="#"><span><%=fa_icon "instagram"%></span></a></li>
-	   <li><a href="#"><span><%=fa_icon "google-plus"%></span></a></li>
 	 </ul>
 </div>
