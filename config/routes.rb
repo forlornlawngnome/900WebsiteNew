@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :people
+  resources :years
+  resources :roles
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
