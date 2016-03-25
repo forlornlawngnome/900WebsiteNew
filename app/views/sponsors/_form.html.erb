@@ -20,8 +20,8 @@
     <%= f.file_field :logo_link %>
 	<% if f.object.logo_link? %>
 	      <%= image_tag f.object.logo_link.url %>
-	      <%= f.label :remove_image %>
-	      <%= f.check_box :remove_image %> 
+	      <%= f.label :remove_logo_link %>
+	      <%= f.check_box :remove_logo_link %> 
     <% end %>
   </div>
   <div class="field">

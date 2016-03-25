@@ -31,7 +31,13 @@
 				</div>
 				<div class="small-12 medium-6 large-expand columns">
 					<h5><u>Sponsors</u></h5>
-					<3 Sponsors
+					<dl>
+						<%Sponsor.current_institutional_sponsors.each do |sponsor_year|%>
+							<%sponsor = sponsor_year.sponsor%>
+							<dt><%=sponsor_name_link sponsor%></dt>
+						<%end%>
+						<dt><%=link_to "#{fa_icon('caret-right')} All Sponsors".html_safe, sponsors_path%></dt>
+					</dl>
 				</div>
 			</div>
 		</div>

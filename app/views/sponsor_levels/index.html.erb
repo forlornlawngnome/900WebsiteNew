@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
+	  <th>Order</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
     <% @sponsor_levels.each do |sponsor_level| %>
       <tr>
         <td><%= sponsor_level.name %></td>
+		<td><%= sponsor_level.order %></td>
         <td><%= link_to 'Show', sponsor_level %></td>
         <td><%= link_to 'Edit', edit_sponsor_level_path(sponsor_level) %></td>
         <td><%= link_to 'Destroy', sponsor_level, method: :delete, data: { confirm: 'Are you sure?' } %></td>

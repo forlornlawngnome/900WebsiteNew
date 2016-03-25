@@ -69,6 +69,6 @@ class SponsorLevelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sponsor_level_params
-      params.require(:sponsor_level).permit(:name)
+      params.require(:sponsor_level).permit(:name, :order)
     end
 end
