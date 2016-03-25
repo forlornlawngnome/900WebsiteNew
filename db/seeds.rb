@@ -13,4 +13,4 @@ SocialMediaLink.create([{name: 'Facebook', icon: 'facebook', media_url: 'https:/
   {name: 'Google+', icon: 'google-plus', media_url: 'https://plus.google.com/+FIRSTZebracorn/posts', order: 6},
   ])
   
-SponsorLevel.create([{name: 'Institutional'}, {name: 'Gold'}, {name: 'Silver'}, {name: 'Bronze'}, ])
+SponsorLevel.create([{name: 'Institutional', order: 1}, {name: 'Gold', order: 2}, {name: 'Silver', order: 3}, {name: 'Bronze', order:4}, ])

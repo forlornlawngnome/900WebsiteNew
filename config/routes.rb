@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'calendar', :as=>"calendar", :to => 'meetings#calendar'
+
   resources :social_media_links
   resources :post_contents
   resources :content_types
@@ -10,7 +12,11 @@ Rails.application.routes.draw do
   resources :documents
   resources :categories
   resources :sponsor_years
-  resources :sponsors
+  resources :sponsors do
+    collection do
+      get 'all'
+    end
+  end
   resources :sponsor_levels
   resources :awards_competitions
   resources :awards
