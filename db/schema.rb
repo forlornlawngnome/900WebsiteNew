@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323012409) do
+ActiveRecord::Schema.define(version: 20160325204002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,13 @@ ActiveRecord::Schema.define(version: 20160323012409) do
   add_index "documents_people", ["document_id"], name: "index_documents_people_on_document_id", using: :btree
   add_index "documents_people", ["person_id"], name: "index_documents_people_on_person_id", using: :btree
 
+  create_table "forms", force: :cascade do |t|
+    t.string   "name"
+    t.text     "form_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "game_videos", force: :cascade do |t|
     t.integer  "game_id"
     t.string   "title"
@@ -116,6 +123,13 @@ ActiveRecord::Schema.define(version: 20160323012409) do
   end
 
   add_index "games", ["year_id"], name: "index_games_on_year_id", using: :btree
+
+  create_table "handbooks", force: :cascade do |t|
+    t.text     "handbook_link"
+    t.text     "about"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "people", force: :cascade do |t|
     t.string   "name"

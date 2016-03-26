@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'calendar', :as=>"calendar", :to => 'meetings#calendar'
+  get "handbook", :as=>"team_handbook", :to => 'handbooks#handbook'
 
   resources :social_media_links
   resources :post_contents
@@ -26,6 +27,8 @@ Rails.application.routes.draw do
   resources :people
   resources :years
   resources :roles
+  resources :handbooks
+  resources :forms
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

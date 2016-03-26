@@ -84,8 +84,9 @@ h1 small.smaller {
 div#titlebar{
 	background-color: #0a0a0a;
 }
-
-
+.callout{
+	border: 1px solid #0A0A0A!important;
+}
 
 div#right-sidebar{
   position:fixed;
@@ -103,5 +104,10 @@ div#right-sidebar{
  * html body{
   overflow:hidden;
  } 
- 
- 
+ a.fill-div {
+ 	position: absolute!important;
+     width: 100%!important;
+     height: 100%!important;
+     top: 0!important;
+     left: 0!important;
+ }
