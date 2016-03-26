@@ -6,4 +6,9 @@ class Year < ActiveRecord::Base
   def self.current_year
     return Year.where("start_date <=? and end_date >=?",Date.today, Date.today).first
   end
+  
+  def range
+    range = "#{self.start_date.year}-#{self.end_date.year}"
+    return range
+  end
 end
