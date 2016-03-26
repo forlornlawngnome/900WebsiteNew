@@ -22,8 +22,10 @@
          <a href="#">Media</a>
          <ul class="menu vertical">
            <li><a href="#">News</a></li>
-		   <li><a href="#">Photos</a></li>
-           <li><a href="#">Videos</a></li>
+		   <%photos = SocialMediaLink.where("lower(name) = 'photos'").first%>
+		   <li><%=link_to photos.name, photos.media_url, :target=>"_blank" rescue ""%></li>
+		   <%youtube = SocialMediaLink.where("lower(name) = 'youtube'").first%>
+		   <li><%=link_to youtube.name, youtube.media_url, :target=>"_blank" rescue ""%></li>
          </ul>
        </li>
        <li>
