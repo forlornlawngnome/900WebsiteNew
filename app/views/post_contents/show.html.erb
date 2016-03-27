@@ -16,8 +16,13 @@
 </p>
 
 <p>
+  <strong>Supplemental:</strong>
+  <%= @post_content.supplemental %>
+</p>
+
+<p>
   <strong>Order:</strong>
-  <%= @post_content.order %>
+  <%= @post_content.post_order %>
 </p>
 
 <%= link_to 'Edit', edit_post_content_path(@post_content) %> |

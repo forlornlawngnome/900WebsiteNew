@@ -11,6 +11,12 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
   end
+  
+  #GET /news
+  def news
+    @categories = Category.order("name")
+    @posts = Post.where(:active=>true).order("date_published desc").limit(10)
+  end
 
   # GET /posts/new
   def new

@@ -1,0 +1,7 @@
+<h5><%=post.title%> <small><i><%=post.date_published%></i></small></h5>
+<hr />
+<%post.post_contents.order("post_order").each do |content|%>
+	<p>
+		<%=render "/post_contents/post_content", :content=>content%>
+	</p>
+<%end%>

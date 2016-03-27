@@ -15,7 +15,7 @@
 				<div class="medium-6 large-expand columns show-for-medium">
 					<h5><u>Media</u></h5>
 					<dl>
-						<dt>News</dt>
+						<dt><%=link_to "News", news_path%></a></dt>
 			 			<%photos = SocialMediaLink.where("lower(name) = 'photos'").first%>
 			 			<dt><%=link_to photos.name, photos.media_url, :target=>"_blank" rescue ""%></dt>
 			 			<%youtube = SocialMediaLink.where("lower(name) = 'youtube'").first%>

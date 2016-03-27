@@ -4,7 +4,8 @@ class CreatePostContents < ActiveRecord::Migration
       t.references :post, index: true, foreign_key: true
       t.references :content_type, index: true, foreign_key: true
       t.text :body
-      t.integer :order
+      t.text :supplemental 
+      t.integer :post_order
 
       t.timestamps null: false
     end

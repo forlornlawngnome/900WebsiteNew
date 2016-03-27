@@ -69,6 +69,6 @@ class PostContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_content_params
-      params.require(:post_content).permit(:post_id, :content_type_id, :body, :order)
+      params.require(:post_content).permit(:post_id, :content_type_id, :body, :post_order, :supplemental)
     end
 end

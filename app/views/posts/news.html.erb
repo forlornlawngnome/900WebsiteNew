@@ -1,0 +1,37 @@
+<br />
+<div class="row">
+	<div class="columns">
+		<div class="row title-bar nomargin">
+			<h3>News</h3>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-9 columns">
+		<%@posts.each do |post|%>
+			<div class="small-12 columns callout">
+				<%=render "individual_post", :post=>post%>
+			</div>
+		<%end%>
+	</div>
+	<div class="small-12 medium-3 columns">
+		<div class="small-12 columns callout">
+			<div class="row title-bar">
+				<h5>Categories</h5>
+			</div>
+			<ul>
+				<%@categories.each do |cat|%>
+					<li><%=cat.name%></li>
+				<%end%>
+			</ul>
+		</div>
+		<div class="small-12 columns callout">
+			<div class="row title-bar">
+				<h5>Archive</h5>
+			</div>
+			<ul>
+				Former posts
+			</ul>
+		</div>
+	</div>
+</div>
