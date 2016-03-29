@@ -4,4 +4,8 @@ class Post < ActiveRecord::Base
   belongs_to :year
   has_many :post_contents
   has_and_belongs_to_many :categories
+  
+  def self.active
+    self.where(:active=>true)
+  end
 end

@@ -33,9 +33,18 @@
 			<div class="row title-bar">
 				<h5>Archive</h5>
 			</div>
-			<ul>
-				Former posts
-			</ul>
+			<dl>
+				<%@range.each do |years|%>
+					<dt><%=years[0].year%></dt>
+					<%years[1].each do |months|%>
+						<%post = months[1].first%>
+						<%count = Post.active.where("date_published >=?", post.date_published).count%>
+						<%page = count/10+1%>
+						<dd><i><%=link_to months[0].strftime("%B"), news_path+"?page=#{page}"%></i></dd>
+					<%end%>
+				<%end%>
+				
+			</dl>
 		</div>
 	</div>
 </div>

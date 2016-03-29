@@ -16,7 +16,13 @@ class PostsController < ApplicationController
   def news
     @search = Post.search(params[:q])
     @categories = Category.order("name")
-    @posts = @search.result.where(:active=>true).order("date_published desc").page params[:page]
+    @posts = @search.result.active.order("date_published desc").page params[:page]
+    first_post = Post.order("date_published").limit(1).first
+    #dates = Date.today.downto(first_post.date_published).to_a
+    #month_range = dates.group_by { |d| d.beginning_of_month }
+    posts = Post.active.order("date_published desc").all
+    month_range = posts.group_by {|p| p.date_published.beginning_of_month}
+    @range = month_range.group_by { |d| d[0].beginning_of_year}
   end
 
   # GET /posts/new

@@ -3,7 +3,9 @@
 	<%=content.body.html_safe%>
 <%when "image"%>
 	<div class="columns text-center ">
-		<%=image_tag content.body, :alt=>content.supplemental%>
+		<div class="small-12 columns">
+			<%=image_tag content.body, :alt=>content.supplemental%>
+		</div>
 		<i><%=content.supplemental%></i>
 	</div>
 <%when "video"%>
