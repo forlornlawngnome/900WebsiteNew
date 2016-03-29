@@ -13,7 +13,8 @@
 	</div>
 	<div class="small-12 medium-expand columns callout text-center">
 		<%if !Handbook.latest.nil?%>
-			<%=link_to "<br /><h2>The Handbook</h2><i>View/download here</i>".html_safe, Handbook.latest.handbook_link, :class=>"fill-div", :target=>"_blank"%>
+			<%=link_to "".html_safe, Handbook.latest.handbook_link, :class=>"fill-div", :target=>"_blank"%>
+			<br /><h2>The Handbook</h2><i>View/download here</i>
 		<%else%>
 			You need to upload the handbook!
 		<%end%>
