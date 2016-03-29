@@ -37,6 +37,9 @@ gem "font-awesome-rails"
 
 gem 'carrierwave', '~> 0.10.0'
 
+gem 'kaminari' #pagination
+gem 'ransack' #filtering
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

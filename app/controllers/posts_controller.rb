@@ -14,8 +14,9 @@ class PostsController < ApplicationController
   
   #GET /news
   def news
+    @search = Post.search(params[:q])
     @categories = Category.order("name")
-    @posts = Post.where(:active=>true).order("date_published desc").limit(10)
+    @posts = @search.result.where(:active=>true).order("date_published desc").page params[:page]
   end
 
   # GET /posts/new

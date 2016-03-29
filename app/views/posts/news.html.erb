@@ -8,6 +8,9 @@
 </div>
 <div class="row">
 	<div class="small-12 medium-9 columns">
+		<div style="margin-top:1rem" class="text-center">
+			<%= paginate @posts %>
+		</div>
 		<%@posts.each do |post|%>
 			<div class="small-12 columns callout">
 				<%=render "individual_post", :post=>post%>
@@ -20,8 +23,9 @@
 				<h5>Categories</h5>
 			</div>
 			<ul>
+					<li><%=link_to "All", news_path%></li>
 				<%@categories.each do |cat|%>
-					<li><%=cat.name%></li>
+					<li><%=category_link(cat)%></li>
 				<%end%>
 			</ul>
 		</div>
