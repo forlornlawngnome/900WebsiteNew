@@ -1,4 +1,4 @@
-<h5><%=post.title%> <small><i><%=post.date_published%></i></small></h5>
+<h5><%=post.title%> <small><i><%=post.date_published.strftime("%b %e, %Y")%></i></small></h5>
 <%post.categories.each do |cat|%>
 	<%=fa_icon "tag"%> <%=category_link(cat)%>
 <%end%>
