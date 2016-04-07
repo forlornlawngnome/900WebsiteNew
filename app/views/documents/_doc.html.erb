@@ -5,9 +5,16 @@
 	
 	<p>
 		<i>Author(s): 
+			<%first=true%>
+			<%authors=""%>
 			<%doc.people.each do |person|%>
-				<%=person.name%>,
+				<%if !first%>
+					<%authors="#{authors}, "%>
+				<%end%>
+				<%authors="#{authors}#{person.name}"%>
+				<%first=false%>
 			<%end%>
+			<%=authors%>
 		</i>
 	</p>
 	<p>
