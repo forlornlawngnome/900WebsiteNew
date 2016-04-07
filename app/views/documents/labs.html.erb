@@ -1,0 +1,42 @@
+<br />
+<div class="row">
+	<div class="columns">
+		<div class="row title-bar nomargin">
+			<h3>Zebracorn Labs</h3>
+		</div>
+	</div>
+</div>
+<div style="margin-top:1rem" class="text-center">
+	<div class="row">
+		<ul class="accordion small-12 columns" data-accordion >
+		  <li class="accordion-item is-active" data-accordion-item>
+		    <div class="accordion-content text-left white-background" data-tab-content>
+				<div class="">
+			     	Here at the Zebracorns, we believe in learning and pushing boundaries. In persuit of that, we have published several papers, given several talks and have some tidbits lying around. We hope you enjoy these as much as we have.  
+				</div>
+		    </div>
+		  </li>
+		</ul>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class=" small-12 columns">
+		<ul class="accordion" data-accordion  data-multi-expand="true"  data-allow-all-closed="true">
+			<%@categories.each do |cat|%>
+				<li class="accordion-item is-active" data-accordion-item>
+					<a href="#" class="accordion-title"><h5><%=cat.name%></h5></a>
+					<div class="accordion-content" data-tab-content>
+						<div class="row align-justify">
+							<%cat.documents.order("date_published desc").each do |doc|%>
+								<%=render "/documents/doc", :doc=>doc%>
+							<%end%>
+						</div>
+					</div>
+				</li>
+			<%end%>
+		</ul>
+	</div>
+</div>
+

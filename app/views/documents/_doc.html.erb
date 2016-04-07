@@ -1,0 +1,21 @@
+<div class="small-12 medium-5 large-3 columns callout nomargin ">
+	<div class="row title-bar">
+		<h5><b><%=doc.name%></b> <small><%=doc.date_published.strftime("%b %e, %Y")%></small></h5>
+	</div>
+	
+	<p>
+		<i>Author(s): 
+			<%doc.people.each do |person|%>
+				<%=person.name%>,
+			<%end%>
+		</i>
+	</p>
+	<p>
+		<%=doc.about.html_safe%>
+	</p>
+	<ul>
+		<%doc.document_links.each do |link|%>
+			<li><%=link_to "#{fa_icon("file")} #{link.name}".html_safe, link.doc_link, :target=>"_blank"%></li>
+		<%end%>
+	</ul>
+</div>

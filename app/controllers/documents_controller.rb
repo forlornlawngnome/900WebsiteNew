@@ -16,6 +16,10 @@ class DocumentsController < ApplicationController
   def new
     @document = Document.new
   end
+  
+  def labs
+    @categories =Category.joins(:documents).order("name").uniq.all
+  end
 
   # GET /documents/1/edit
   def edit

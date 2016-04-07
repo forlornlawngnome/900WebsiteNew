@@ -36,6 +36,11 @@ padding: 0 !important;
 .callout {
     margin-top: 2rem !important ;
     padding: 0 1rem 1rem 1rem !important;
+	border: 1px solid #0A0A0A!important;
+}
+.callout.nomargin{
+	margin-top:0rem !important;
+	margin-bottom: 1rem !important;
 }
 
 .footer{
@@ -88,9 +93,8 @@ h1 small.smaller {
 div#titlebar{
 	background-color: #0a0a0a;
 }
-.callout{
-	border: 1px solid #0A0A0A!important;
-}
+
+
 
 div#right-sidebar{
   position:fixed;
@@ -128,4 +132,36 @@ div#right-sidebar{
  	left: 0;
  	width: 100%;
  	height: 100%;
+ }
+ .accordion-content{
+	 background-color: transparent !important;
+	 border:none !important;
+	 margin-left: -1rem !important;
+	 margin-right: -1rem !important;
+ }
+ .accordion{
+	 background-color:transparent !important;
+	 border:none !important;
+	 
+ }
+ .accordion-title{
+	 background-color:white !important;
+	 border-bottom: 1px solid #989898 !important;
+	 border-top: 1px solid #989898 !important;
+	 border-left: 1px solid #989898 !important;
+	 border-right: 1px solid #989898 !important;
+	 margin-left: -1rem !important;
+	 margin-right: -1rem !important;
+ }
+.accordion .accordion-content.white-background{
+	 background-color:white !important;
+	 border-bottom: 1px solid #989898 !important;
+	 border-top: 1px solid #989898 !important;
+	 border-left: 1px solid #989898 !important;
+	 border-right: 1px solid #989898 !important;
+	 
+ }
+ .sidemargin {
+	 margin-left: 1rem !important;
+	 margin-right: 1rem !important;
  }

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'calendar', :as=>"calendar", :to => 'meetings#calendar'
   get "handbook", :as=>"team_handbook", :to => 'handbooks#handbook'
   get "news", :as=>"news", :to=> 'posts#news'
+  get "labs", :as=>"labs", :to=> 'documents#labs'
 
   resources :social_media_links
   resources :post_contents
