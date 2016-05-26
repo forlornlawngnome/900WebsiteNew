@@ -1,0 +1,12 @@
+<div class="row align-justify">
+	<div class="columns callout small-12">
+		<div class="row title-bar">
+			<h4>How can I get involved?</h4>
+		</div>
+		<%@blurbs.each do |blurb|%>
+			<p>
+				<%=blurb.blurb.html_safe%>
+			</p>
+		<%end%>
+	</div>
+</div>

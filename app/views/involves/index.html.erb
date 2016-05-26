@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Involves</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Blurb</th>
+      <th>Order</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @involves.each do |involf| %>
+      <tr>
+        <td><%= involf.blurb %></td>
+        <td><%= involf.order %></td>
+        <td><%= link_to 'Show', involf %></td>
+        <td><%= link_to 'Edit', edit_involf_path(involf) %></td>
+        <td><%= link_to 'Destroy', involf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Involve', new_involf_path %>

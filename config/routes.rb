@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   get 'history(/:game)', :as=>"history", :to=> "history#history"
   get 'awards', :as=>"awards", :to=> "history#awards"
+  
+  get 'involved', :as=>"involved", :to=>"involves#involved"
+  get 'outreach', :as=>"outreach", :to=>"about#outreach"
+  get 'about_us', :as=>"about_us", :to=>"about#about_us"
 
   get 'calendar', :as=>"calendar", :to => 'meetings#calendar'
   get "handbook", :as=>"team_handbook", :to => 'handbooks#handbook'
@@ -34,6 +38,7 @@ Rails.application.routes.draw do
   resources :roles
   resources :handbooks
   resources :forms
+  resources :involves
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
