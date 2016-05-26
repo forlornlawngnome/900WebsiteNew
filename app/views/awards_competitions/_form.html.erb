@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :competition_id %><br>
-    <%= f.text_field :competition_id %>
+	<%= f.collection_select(:competition_id, Competition.all, :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
   </div>
   <div class="field">
     <%= f.label :award_id %><br>
-    <%= f.text_field :award_id %>
+	<%= f.collection_select(:award_id, Award.all, :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
   </div>
   <div class="field">
     <%= f.label :blurb %><br>

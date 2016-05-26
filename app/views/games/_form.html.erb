@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :year_id %><br>
-    <%= f.text_field :year_id %>
+	<%= f.collection_select(:year_id, Year.all, :id, :range, {:prompt=>true}, {:class=>'my-custom-class'}) %>
   </div>
   <div class="field">
     <%= f.label :name %><br>

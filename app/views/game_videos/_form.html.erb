@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :game_id %><br>
-    <%= f.text_field :game_id %>
+	<%= f.collection_select(:game_id, Game.all, :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
   </div>
   <div class="field">
     <%= f.label :title %><br>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'history(/:game)', :as=>"history", :to=> "history#history"
+  get 'awards', :as=>"awards", :to=> "history#awards"
+
   get 'calendar', :as=>"calendar", :to => 'meetings#calendar'
   get "handbook", :as=>"team_handbook", :to => 'handbooks#handbook'
   get "news", :as=>"news", :to=> 'posts#news'

@@ -16,12 +16,21 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+	  <%=f.label :game_id%><br>
+	  <%= f.collection_select(:game_id, Game.all, :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+  </div>
+  <div class="field">
     <%= f.label :descripton %><br>
     <%= f.text_area :descripton %>
   </div>
   <div class="field">
     <%= f.label :image %><br>
-    <%= f.text_field :image %>
+    <%= f.file_field :image %>
+	<% if f.object.image? %>
+	      <%= image_tag f.object.image.url %>
+	      <%= f.label :remove_image %>
+	      <%= f.check_box :remove_image %> 
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,0 +1,88 @@
+<div class="row">
+	<div class="columns small-12">
+		<div class="row title-bar">
+			<h3>Our History</h3>
+		</div>
+	</div>
+</div>
+
+<div class="row align-justify">
+	<div class="columns callout small-12 medium-7">
+		<div class="row title-bar">
+			<h3><%=@game.year.range%> - <%=@game.name%></h3>
+		</div>
+		<ul class="tabs" data-tabs id="video-tabs">
+			<%@game.game_videos.each_with_index do |video, i|%>
+				<%if i==0%>
+					<li class="tabs-title is-active">
+						<a href=<%="##{video.title.downcase.gsub(/ +/,'_')}"%> aria-selected="true">
+							<%=video.title%>
+						</a>
+					</li>
+				<%else%>
+					<li class="tabs-title">
+						<a href=<%="##{video.title.downcase.gsub(/ +/,'_')}"%>>
+							<%=video.title%>
+						</a>
+					</li>
+				<%end%>
+			<%end%>
+		</ul>
+		<div class="tabs-content" data-tabs-content="video-tabs">
+			<%@game.game_videos.each_with_index do |video, i|%>
+				<%if i==0%>
+					 <div class="tabs-panel is-active" id=<%=video.title.downcase.gsub(/ +/,'_')%>>
+				 		<div class="video-wrapper">
+				 			<%=video.link.html_safe%>
+				 		</div>
+					 </div>
+				<%else%>
+					 <div class="tabs-panel" id=<%=video.title.downcase.gsub(/ +/,'_')%>>
+				 		<div class="video-wrapper">
+				 			<%=video.link.html_safe%>
+				 		</div>
+					 </div>
+				<%end%>
+			<%end%>
+		</div>
+	</div>
+	<%if !@game.strategy.nil? && !@game.strategy.empty?%>
+		<div class="columns callout small-12 medium-4">
+			<div class="row title-bar">
+				<h4>The Strategy</h4>
+			</div>
+			<p><%=@game.strategy.html_safe%></p>
+		</div>
+	<%end%>
+</div>
+<div class="row  align-justify">
+	<%if !@game.robot.nil?%>
+		<div class="columns callout">
+			<div class="row title-bar">
+				<h4><%=@game.robot.name%></h4>
+			</div>
+			<div class="row">
+				<div class="column small-12 medium-4">
+					<h5><u>Description</u></h5>
+					<%=@game.robot.descripton.html_safe%>
+				</div>
+				<div class="column small-12 medium-4">
+					<%=image_tag @game.robot.image.url%> 
+				</div>
+				<div class="column small-12 medium-4">
+					<h5><u>Competitions & Awards</u></h5>
+					<dl>
+						<%@game.year.competitions.order("date asc").each do |competition|%>
+							<dt><%=competition.name%></dt>
+							<%competition.awards_competitions.each do |award_comp|%>
+								<dd>
+									<li><span data-tooltip aria-haspopup="true" class="has-tip no-bold" data-disable-hover="false" tabindex="1" title="<%="#{award_comp.blurb}"%>"><%=award_comp.award.name%></span><span data-tooltip aria-haspopup="true" class="has-tip no-bold" data-disable-hover="false" tabindex="1" title="<%=award_comp.award.description%>"><sup><%=fa_icon "question"%></sup></span></li>
+								</dd>
+							<%end%>
+						<%end%>
+					</dl>
+				</div>
+			</div>
+		</div>
+	<%end%>
+</div>

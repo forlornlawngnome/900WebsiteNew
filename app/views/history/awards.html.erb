@@ -1,0 +1,42 @@
+<div class="row">
+	<div class="columns small-12">
+		<div class="row title-bar">
+			<h3>Awards</h3>
+		</div>
+	</div>
+</div>
+<div class="row align-justify">
+	<%@games.each do |game|%>
+		<%if !game.awards.nil? && !game.awards.empty?%>
+			<div class="columns callout small-12">
+				<div class="row title-bar">
+					<h4><%=game.name%> <small><%=game.year.range%></small></h4>
+				</div>
+				<table>
+					<%game.competitions.order("date desc").each do |competition|%>
+						<%competition.awards_competitions.each do |award_comp|%>
+							<tr>
+								<th><%=award_comp.award.name%></th>
+								<td><%=competition.name%></td>
+								<td><%=award_comp.blurb%></td>
+							</tr>
+						<%end%>
+					<%end%>
+				</table>
+			</div>
+		<%end%>
+	<%end%>
+	<div class="columns callout small-12">
+		<div class="row title-bar">
+			<h4>Award Explainations</h4>
+		</div>
+		<table>
+			<%Award.order("name").each do |award|%>
+				<tr>
+					<th><%=award.name%></th>
+					<td><%=award.description%></td>
+				</tr>
+			<%end%>
+		</table>
+	</div>
+</div>

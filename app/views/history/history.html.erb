@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>
+			<%= content_for?(:title) ? yield(:title) : "Untitled" %>
+		</title>
+
+		<%= stylesheet_link_tag    "application" %>
+		<%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	</head>
+
+	<body>
+		<div class="background">
+		</div>
+		<div class="off-canvas-wrapper">
+		    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+		      <div class="off-canvas position-left " id="offCanvas" data-off-canvas>
+
+		        <!-- Close button -->
+		        <button class="close-button" aria-label="Close menu" type="button" data-close>
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+
+		        <!-- Menu -->
+		   	<ul class="vertical menu menu-white" data-drilldown>
+		   	  <%@games.each do |game|%>
+		   		<li><%=link_to "#{game.year.range}: #{game.name}", history_path(game.name.camelcase)%></li>
+		   	  <%end%>
+		   	</ul>
+
+		      </div>
+
+		<div class="off-canvas-content" data-off-canvas-content>
+			
+			<div>
+				<%=render "/layouts/top_nav"%>
+				<%=render "/layouts/side_nav"%>
+				<%=render "/history/game_nav"%>
+			</div>
+			<div class="row align-center">
+				<div class="medium-10 columns">
+					<%=render "history_page"%>
+				</div>
+			</div>
+			<%=render "/layouts/footer"%>
+		   
+		</div>
+	    <script>
+	    	$(document).foundation();
+	    </script>
+	</body>
+</html>

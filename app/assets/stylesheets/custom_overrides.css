@@ -1,5 +1,11 @@
-.menu input, .menu a, .menu button {
-    color: #CACACA !important;
+.stuck-left{
+	position:absolute;
+    top:130px;
+    left:0px;
+}
+
+.menu.grey-menu{
+	color: #CACACA !important;
 }
 
 .is-dropdown-submenu-item  a{
@@ -119,7 +125,33 @@ div#right-sidebar{
      top: 0!important;
      left: 0!important;
  }
- 
+ div#left-sidebar{
+   color:white;
+   position:fixed;
+   top:100px;
+   left:0;
+   width:60px;
+   background-color: black;
+   border-radius: 0px 20px 20px 0px;
+   padding-top:.5rem;
+   padding-bottom:1rem;
+   padding-right:.5rem;
+  }
+  @media screen{
+   body>div#left-sidebar{
+    position:fixed;
+   }
+  }
+  * html body{
+   overflow:hidden;
+  } 
+  a.fill-div {
+  	position: absolute!important;
+      width: 100%!important;
+      height: 100%!important;
+      top: 0!important;
+      left: 0!important;
+  }
  .video-wrapper {
  	position: relative;
  	height: 0;
@@ -164,4 +196,28 @@ div#right-sidebar{
  .sidemargin {
 	 margin-left: 1rem !important;
 	 margin-right: 1rem !important;
+ }
+ 
+.vertical.menu.menu-white{
+ 	background-color:white;
+	
+ }
+ .tabs {
+     background: none !important;
+     /* border: 1px solid #e6e6e6; */
+ }
+ .tabs-content {
+     background: #fefefe;
+     transition: all 0.5s ease;
+     border: none !important; 
+     border-top: none !important; 
+ }
+ .tabs-title > a {
+     padding: .5rem .5rem !important;
+ }
+ .off-canvas-content, .off-canvas-content {
+ 	background:inherit !important;
+ }
+ .has-tip.no-bold{
+ 	font-weight:normal!important;
  }

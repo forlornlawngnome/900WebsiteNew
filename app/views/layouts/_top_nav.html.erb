@@ -5,15 +5,15 @@
 
 <div class="top-bar" id="main-menu">
  <div class="top-bar-left ">
-     <ul class="dropdown menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown">
+     <ul class="dropdown menu vertical medium-horizontal grey-menu" data-responsive-menu="drilldown medium-dropdown">
        <li class="menu-text"><%=link_to "Zebracorns", root_path%></li>
        <li>
          <a href="#">About Us</a>
          <ul class="menu vertical">
            <li><a href="#">Who Are We?</a></li>
 		   <li><a href="#">Outreach</a></li>
-           <li><a href="#">Awards</a></li>
-           <li><a href="#">History</a></li>
+           <li><%=link_to "Awards", awards_path%></li>
+           <li><%=link_to "History", history_path%></li>
          </ul>
        </li>
        <li><%=link_to "Calendar", calendar_path%></li>

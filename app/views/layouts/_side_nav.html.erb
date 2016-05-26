@@ -1,5 +1,5 @@
 <div id="right-sidebar">
-	 <ul class="menu vertical show-for-large">
+	 <ul class="menu vertical show-for-large grey-menu">
 		 <%SocialMediaLink.all.order(:order).each do |media|%>
 		 	<li><a href=<%=media.media_url%> target="_blank"><span><%=fa_icon media.icon%></span></a></li>
 		 <%end%>
