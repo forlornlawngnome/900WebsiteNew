@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526223745) do
+ActiveRecord::Schema.define(version: 20160528184544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "about_contents", force: :cascade do |t|
+    t.string   "name"
+    t.text     "title"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "about_photos", force: :cascade do |t|
+    t.string   "name"
+    t.text     "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "awards", force: :cascade do |t|
     t.string   "name"
@@ -185,6 +200,13 @@ ActiveRecord::Schema.define(version: 20160526223745) do
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "visible"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

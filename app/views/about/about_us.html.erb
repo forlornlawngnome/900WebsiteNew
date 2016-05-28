@@ -1,0 +1,113 @@
+<style>
+	.bg-image {
+	  /* image specified in separate class below */
+	  height: 240px;
+	  width: 100%; 
+	}
+	  @media only screen and (min-width : 768px) {
+	    .bg-image { height: 320px; }
+	  }
+	  @media only screen and (min-width : 1200px) {
+	    .bg-image { height: 400px; }
+	  }
+  	.bg-image-team-photo {
+  	  background-image: url(<%=@team_photo.try :image%>);
+
+  	  /* lt ie8 */
+  	  -ms-background-position-x: center;
+  	  -ms-background-position-y: center;
+  	  background-position: center center;
+
+  	  /* scale bg image proportionately */
+  	  background-size: cover;
+    
+  	  /* ie8 workaround - http://louisremi.github.io/background-size-polyfill/ */
+  	  -ms-behavior: url(/backgroundsize.min.htc);
+  	  /* prevent scaling past src width (or not) */
+  	  /* max-width: 1200px; */
+  
+	  
+  	}
+	.bg-image-location {
+	  background-image: url(<%=@location_photo.try :image %>);
+
+	  /* lt ie8 */
+	  -ms-background-position-x: center;
+	  -ms-background-position-y: center;
+	  background-position: center center;
+
+	  /* scale bg image proportionately */
+	  background-size: cover;
+    
+	  /* ie8 workaround - http://louisremi.github.io/background-size-polyfill/ */
+	  -ms-behavior: url(/backgroundsize.min.htc);
+	  /* prevent scaling past src width (or not) */
+	  /* max-width: 1200px; */
+  
+	  
+	}
+	.bg-image-mascot {
+	  background-image: url(<%=@mascot_photo.try :image%>);
+
+	  /* lt ie8 */
+	  -ms-background-position-x: center;
+	  -ms-background-position-y: center;
+	  background-position: center center;
+
+	  /* scale bg image proportionately */
+	  background-size: cover;
+    
+	  /* ie8 workaround - http://louisremi.github.io/background-size-polyfill/ */
+	  -ms-behavior: url(/backgroundsize.min.htc);
+	  /* prevent scaling past src width (or not) */
+	  /* max-width: 1200px; */
+  
+	  
+	}
+</style>
+<div class="row align-justify">
+	<%if !@team_photo.nil?%>
+		<div class="columns callout small-12 bg-image bg-image-team-photo">
+		</div>
+	<%end%>
+	<%if !@who_are_we.nil?%>
+		<div class="columns callout small-12">
+			<div class="row title-bar">
+				<h5><%=@who_are_we.title%></h5>
+			</div>
+			<%=@who_are_we.content.html_safe%>
+		</div>
+	<%end%>
+	<%if !@location_photo.nil?%>
+		<div class="columns callout small-12 bg-image bg-image-location">
+		</div>
+	<%end%>
+	<%if !@location_info.nil?%>
+		<div class="columns callout small-6">
+			<div class="row title-bar">
+				<h5><%=@location_info.title%></h5>
+			</div>
+			<%=@location_info.content.html_safe%>
+		</div>
+	<%end%>
+	<div class="columns callout small-6">
+		<div class="row title-bar">
+			<h5>Schools</h5>
+		</div>
+		<%@schools.each do |school|%>
+			<li><%=school.name%></li>
+		<%end%>
+	</div>
+	<%if !@mascot_photo.nil?%>
+		<div class="columns callout small-12 bg-image bg-image-mascot">
+		</div>
+	<%end%>
+	<%if !@mascot_info.nil?%>
+		<div class="columns callout small-12">
+			<div class="row title-bar">
+				<h5><%=@mascot_info.title%></h5>
+			</div>
+			<%=@mascot_info.content.html_safe%>
+		</div>
+	<%end%>
+</div>
