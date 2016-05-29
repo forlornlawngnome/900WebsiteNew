@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :about_contents
   get 'history(/:game)', :as=>"history", :to=> "history#history"
-  get 'awards', :as=>"awards", :to=> "history#awards"
+  get 'our_awards', :as=>"our_awards", :to=> "history#awards"
   
   get 'involved', :as=>"involved", :to=>"involves#involved"
   get 'outreach', :as=>"outreach", :to=>"about#outreach"
