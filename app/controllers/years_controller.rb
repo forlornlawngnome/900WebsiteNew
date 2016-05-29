@@ -4,7 +4,7 @@ class YearsController < ApplicationController
   # GET /years
   # GET /years.json
   def index
-    @years = Year.all
+    @years = Year.order("start_date desc")
   end
 
   # GET /years/1

@@ -4,7 +4,7 @@ class SocialMediaLinksController < ApplicationController
   # GET /social_media_links
   # GET /social_media_links.json
   def index
-    @social_media_links = SocialMediaLink.all
+    @social_media_links = SocialMediaLink.order(:order)
   end
 
   # GET /social_media_links/1

@@ -1,8 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Involves</h1>
+<div class="row">
+	<div class="columns small-12 medium-10">
+		<h1>Listing Involves</h1>
+	</div> 
+	<div class="columns small-12 medium-2">
+		<div class="float-right">
+			<%= link_to fa_icon("plus 2x"), new_involf_path %>
+		</div>
+	</div>
+</div>
 
-<table>
+<table class="hover stack">
   <thead>
     <tr>
       <th>Blurb</th>
@@ -14,16 +23,12 @@
   <tbody>
     <% @involves.each do |involf| %>
       <tr>
-        <td><%= involf.blurb %></td>
+        <td><%= involf.blurb.html_safe %></td>
         <td><%= involf.order %></td>
         <td><%= link_to 'Show', involf %></td>
-        <td><%= link_to 'Edit', edit_involf_path(involf) %></td>
-        <td><%= link_to 'Destroy', involf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to fa_icon("pencil"), edit_involf_path(involf) %></td>
+        <td><%= link_to fa_icon("trash"), involf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Involve', new_involf_path %>

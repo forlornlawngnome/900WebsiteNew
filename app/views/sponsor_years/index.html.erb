@@ -1,8 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Sponsor Years</h1>
+<div class="row">
+	<div class="columns small-12 medium-10">
+		<h1>Listing Sponsor Years</h1>
+	</div> 
+	<div class="columns small-12 medium-2">
+		<div class="float-right">
+			<%= link_to fa_icon("plus 2x"), new_sponsor_year_path %>
+		</div>
+	</div>
+</div>
 
-<table>
+<table class="hover stack">
   <thead>
     <tr>
       <th>Sponsor</th>
@@ -15,17 +24,13 @@
   <tbody>
     <% @sponsor_years.each do |sponsor_year| %>
       <tr>
-        <td><%= sponsor_year.sponsor %></td>
-        <td><%= sponsor_year.year %></td>
-        <td><%= sponsor_year.sponsor_level %></td>
+        <td><%= link_to sponsor_year.sponsor.name, sponsor_year.sponsor %></td>
+        <td><%= link_to sponsor_year.year.range, sponsor_year %></td>
+        <td><%= link_to sponsor_year.sponsor_level.name, sponsor_year.sponsor_level %></td>
         <td><%= link_to 'Show', sponsor_year %></td>
-        <td><%= link_to 'Edit', edit_sponsor_year_path(sponsor_year) %></td>
-        <td><%= link_to 'Destroy', sponsor_year, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to fa_icon("pencil"), edit_sponsor_year_path(sponsor_year) %></td>
+        <td><%= link_to fa_icon("trash"), sponsor_year, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Sponsor year', new_sponsor_year_path %>

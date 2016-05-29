@@ -1,33 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Social Media Links</h1>
+<div class="row">
+	<div class="columns small-12 medium-10">
+		<h1>Listing Social Media Links</h1>
+	</div> 
+	<div class="columns small-12 medium-2">
+		<div class="float-right">
+			<%= link_to fa_icon("plus 2x"), new_social_media_link_path %>
+		</div>
+	</div>
+</div>
 
-<table>
+<table class="hover stack">
   <thead>
     <tr>
       <th>Name</th>
       <th>Icon</th>
       <th>Media url</th>
       <th>Order</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @social_media_links.each do |social_media_link| %>
       <tr>
-        <td><%= social_media_link.name %></td>
-        <td><%= social_media_link.icon %></td>
-        <td><%= social_media_link.media_url %></td>
+        <td><%= link_to social_media_link.name, social_media_link %></td>
+        <td><%= fa_icon social_media_link.icon %></td>
+        <td><%= link_to social_media_link.media_url, social_media_link.media_url %></td>
         <td><%= social_media_link.order %></td>
-        <td><%= link_to 'Show', social_media_link %></td>
-        <td><%= link_to 'Edit', edit_social_media_link_path(social_media_link) %></td>
-        <td><%= link_to 'Destroy', social_media_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to fa_icon("pencil"), edit_social_media_link_path(social_media_link) %></td>
+        <td><%= link_to fa_icon("trash"), social_media_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Social media link', new_social_media_link_path %>

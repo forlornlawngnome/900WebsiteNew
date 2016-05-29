@@ -1,8 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Documents People</h1>
+<div class="row">
+	<div class="columns small-12 medium-10">
+		<h1>Listing Documents/People</h1>
+	</div> 
+	<div class="columns small-12 medium-2">
+		<div class="float-right">
+			<%= link_to fa_icon("plus 2x"), new_documents_person_path %>
+		</div>
+	</div>
+</div>
 
-<table>
+<table class="hover stack">
   <thead>
     <tr>
       <th>Person</th>
@@ -14,16 +23,12 @@
   <tbody>
     <% @documents_people.each do |documents_person| %>
       <tr>
-        <td><%= documents_person.person %></td>
-        <td><%= documents_person.document %></td>
+        <td><%= link_to documents_person.person.name, documents_person.person %></td>
+        <td><%= link_to documents_person.document.name, documents_person.document %></td>
         <td><%= link_to 'Show', documents_person %></td>
-        <td><%= link_to 'Edit', edit_documents_person_path(documents_person) %></td>
-        <td><%= link_to 'Destroy', documents_person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to fa_icon("pencil"), edit_documents_person_path(documents_person) %></td>
+        <td><%= link_to fa_icon("trash"), documents_person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Documents person', new_documents_person_path %>

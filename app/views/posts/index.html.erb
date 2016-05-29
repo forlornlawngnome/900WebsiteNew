@@ -1,8 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Posts</h1>
+<div class="row">
+	<div class="columns small-12 medium-10">
+		<h1>Listing Posts</h1>
+	</div> 
+	<div class="columns small-12 medium-2">
+		<div class="float-right">
+			<%= link_to fa_icon("plus 2x"), new_post_path %>
+		</div>
+	</div>
+</div>
 
-<table>
+<table class="hover stack">
   <thead>
     <tr>
       <th>Year</th>
@@ -16,18 +25,14 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.year %></td>
+        <td><%= link_to post.year.range, post.year %></td>
         <td><%= post.date_published %></td>
         <td><%= post.title %></td>
         <td><%= post.active %></td>
         <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to fa_icon("pencil"), edit_post_path(post) %></td>
+        <td><%= link_to fa_icon("trash"), post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>

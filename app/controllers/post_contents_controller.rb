@@ -4,7 +4,7 @@ class PostContentsController < ApplicationController
   # GET /post_contents
   # GET /post_contents.json
   def index
-    @post_contents = PostContent.all
+    @post_contents = PostContent.order(:post_id).order(:post_order)
   end
 
   # GET /post_contents/1

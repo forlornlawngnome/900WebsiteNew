@@ -1,31 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Competitions</h1>
+<div class="row">
+	<div class="columns small-12 medium-10">
+		<h1>Listing Competitions</h1>
+	</div> 
+	<div class="columns small-12 medium-2">
+		<div class="float-right">
+			<%= link_to fa_icon("plus 2x"), new_competition_path %>
+		</div>
+	</div>
+</div>
 
-<table>
+<table class="hover stack">
   <thead>
     <tr>
       <th>Name</th>
       <th>Date</th>
       <th>Year</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @competitions.each do |competition| %>
       <tr>
-        <td><%= competition.name %></td>
+        <td><%= link_to competition.name, competition %></td>
         <td><%= competition.date %></td>
-        <td><%= competition.year %></td>
-        <td><%= link_to 'Show', competition %></td>
-        <td><%= link_to 'Edit', edit_competition_path(competition) %></td>
-        <td><%= link_to 'Destroy', competition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to competition.year.range, competition.year %></td>
+        <td><%= link_to fa_icon("pencil"), edit_competition_path(competition) %></td>
+        <td><%= link_to fa_icon("trash"), competition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Competition', new_competition_path %>

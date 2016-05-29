@@ -1,8 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Handbooks</h1>
+<div class="row">
+	<div class="columns small-12 medium-10">
+		<h1>Listing Handbooks</h1>
+	</div> 
+	<div class="columns small-12 medium-2">
+		<div class="float-right">
+			<%= link_to fa_icon("plus 2x"), new_handbook_path %>
+		</div>
+	</div>
+</div>
 
-<table>
+<table class="hover stack">
   <thead>
     <tr>
       <th>Handbook link</th>
@@ -14,16 +23,12 @@
   <tbody>
     <% @handbooks.each do |handbook| %>
       <tr>
-        <td><%= handbook.handbook_link %></td>
-        <td><%= handbook.about %></td>
+        <td><%= link_to handbook.handbook_link, handbook.handbook_link, :target=>"_blank" %></td>
+        <td><%= handbook.about.html_safe %></td>
         <td><%= link_to 'Show', handbook %></td>
-        <td><%= link_to 'Edit', edit_handbook_path(handbook) %></td>
-        <td><%= link_to 'Destroy', handbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to fa_icon("pencil"), edit_handbook_path(handbook) %></td>
+        <td><%= link_to fa_icon("trash"), handbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Handbook', new_handbook_path %>

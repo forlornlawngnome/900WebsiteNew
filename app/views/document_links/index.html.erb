@@ -1,8 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Document Links</h1>
+<div class="row">
+	<div class="columns small-12 medium-10">
+		<h1>Listing Document Links</h1>
+	</div> 
+	<div class="columns small-12 medium-2">
+		<div class="float-right">
+			<%= link_to fa_icon("plus 2x"), new_document_link_path %>
+		</div>
+	</div>
+</div>
 
-<table>
+
+<table class="hover stack">
   <thead>
     <tr>
       <th>Document</th>
@@ -15,17 +25,12 @@
   <tbody>
     <% @document_links.each do |document_link| %>
       <tr>
-        <td><%= document_link.document %></td>
-        <td><%= document_link.doc_link %></td>
-        <td><%= document_link.name %></td>
+        <td><%= link_to document_link.document.name, document_link.document %></td>
+        <td><%= link_to document_link.name, document_link.doc_link, :target=>"_blank" %></td>
         <td><%= link_to 'Show', document_link %></td>
-        <td><%= link_to 'Edit', edit_document_link_path(document_link) %></td>
-        <td><%= link_to 'Destroy', document_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to fa_icon("pencil"), edit_document_link_path(document_link) %></td>
+        <td><%= link_to fa_icon("trash"), document_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Document link', new_document_link_path %>

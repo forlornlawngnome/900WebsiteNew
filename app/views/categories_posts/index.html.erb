@@ -1,8 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Categories Posts</h1>
+<div class="row">
+	<div class="columns small-12 medium-10">
+		<h1>Listing Categories/Posts</h1>
+	</div> 
+	<div class="columns small-12 medium-2">
+		<div class="float-right">
+			<%= link_to fa_icon("plus 2x"), new_categories_post_path %>
+		</div>
+	</div>
+</div>
 
-<table>
+<table class="hover stack">
   <thead>
     <tr>
       <th>Post</th>
@@ -14,16 +23,12 @@
   <tbody>
     <% @categories_posts.each do |categories_post| %>
       <tr>
-        <td><%= categories_post.post %></td>
-        <td><%= categories_post.category %></td>
+        <td><%= link_to categories_post.post.title, categories_post.post %></td>
+        <td><%= link_to categories_post.category.name, categories_post.category %></td>
         <td><%= link_to 'Show', categories_post %></td>
-        <td><%= link_to 'Edit', edit_categories_post_path(categories_post) %></td>
-        <td><%= link_to 'Destroy', categories_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to fa_icon("pencil"), edit_categories_post_path(categories_post) %></td>
+        <td><%= link_to fa_icon("trash"), categories_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Categories post', new_categories_post_path %>

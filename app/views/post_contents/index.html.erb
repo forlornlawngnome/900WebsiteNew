@@ -1,8 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Post Contents</h1>
+<div class="row">
+	<div class="columns small-12 medium-10">
+		<h1>Listing Post Contents</h1>
+	</div> 
+	<div class="columns small-12 medium-2">
+		<div class="float-right">
+			<%= link_to fa_icon("plus 2x"), new_post_content_path %>
+		</div>
+	</div>
+</div>
 
-<table>
+<table class="hover stack scroll">
   <thead>
     <tr>
       <th>Post</th>
@@ -17,19 +26,14 @@
   <tbody>
     <% @post_contents.each do |post_content| %>
       <tr>
-        <td><%= post_content.post %></td>
-        <td><%= post_content.content_type %></td>
-        <td><%= post_content.body %></td>
-		<td><%= post_content.supplemental %></td>
+        <td><%= link_to post_content.post.title, post_content.post %></td>
+        <td><%= link_to post_content.content_type.name, post_content.content_type %></td>
+        <td><%= render "/post_contents/post_content", :content=> post_content %></td>
         <td><%= post_content.post_order %></td>
         <td><%= link_to 'Show', post_content %></td>
-        <td><%= link_to 'Edit', edit_post_content_path(post_content) %></td>
-        <td><%= link_to 'Destroy', post_content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to fa_icon("pencil"), edit_post_content_path(post_content) %></td>
+        <td><%= link_to fa_icon("trash"), post_content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Post content', new_post_content_path %>

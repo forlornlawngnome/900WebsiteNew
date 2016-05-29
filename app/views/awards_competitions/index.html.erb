@@ -1,8 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Awards Competitions</h1>
+<div class="row">
+	<div class="columns small-12 medium-10">
+		<h1>Listing Awards/Competitions</h1>
+	</div> 
+	<div class="columns small-12 medium-2">
+		<div class="float-right">
+			<%= link_to fa_icon("plus 2x"), new_awards_competition_path %>
+		</div>
+	</div>
+</div>
 
-<table>
+<table class="hover stack">
   <thead>
     <tr>
       <th>Competition</th>
@@ -15,17 +24,13 @@
   <tbody>
     <% @awards_competitions.each do |awards_competition| %>
       <tr>
-        <td><%= awards_competition.competition %></td>
-        <td><%= awards_competition.award %></td>
+        <td><%= link_to awards_competition.competition.name, awards_competition.competition %></td>
+        <td><%= link_to awards_competition.award.name, awards_competition.award %></td>
         <td><%= awards_competition.blurb %></td>
         <td><%= link_to 'Show', awards_competition %></td>
-        <td><%= link_to 'Edit', edit_awards_competition_path(awards_competition) %></td>
-        <td><%= link_to 'Destroy', awards_competition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to fa_icon("pencil"), edit_awards_competition_path(awards_competition) %></td>
+        <td><%= link_to fa_icon("trash"), awards_competition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Awards competition', new_awards_competition_path %>

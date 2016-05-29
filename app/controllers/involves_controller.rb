@@ -4,7 +4,7 @@ class InvolvesController < ApplicationController
   # GET /involves
   # GET /involves.json
   def index
-    @involves = Involve.all
+    @involves = Involve.order(:order)
   end
 
   # GET /involves/1
