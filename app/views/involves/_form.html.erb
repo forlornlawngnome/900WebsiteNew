@@ -1,25 +1,26 @@
 <%= form_for(@involf) do |f| %>
-  <% if @involf.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@involf.errors.count, "error") %> prohibited this involf from being saved:</h2>
-
-      <ul>
-      <% @involf.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :blurb %><br>
-    <%= f.text_area :blurb %>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :blurb, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_area :blurb, :rows=>3%>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :order %><br>
-    <%= f.number_field :order %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :order, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.number_field :order%>
+      </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>

@@ -1,6 +1,14 @@
-<h1>Editing Robot</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @robot %> |
-<%= link_to 'Back', robots_path %>
+<div class="columns callout small-12">
+	<div class="row title-bar">
+		<h4>Editing Robot</h4>
+	</div>
+	<%= render 'form' %>
+  	<div class="row">
+		<div class="small-3 medium-2 columns">
+		</div>
+		<div class="small-9 medium-10 columns">
+			<p class="text-right"><%= link_to 'Show', @robot %> |
+<%= link_to 'Back', robots_path %></p>
+		</div>
+  	</div>
+</div>

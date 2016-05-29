@@ -1,25 +1,26 @@
 <%= form_for(@categories_post) do |f| %>
-  <% if @categories_post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@categories_post.errors.count, "error") %> prohibited this categories_post from being saved:</h2>
-
-      <ul>
-      <% @categories_post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :post_id %><br>
-	<%= f.collection_select(:post_id, Post.all, :id, :title, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :post_id, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:post_id, Post.order("date_published desc"), :id, :title, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :category_id %><br>
-	<%= f.collection_select(:category_id, Category.order("name"), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :category_id, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:category_id, Category.order("name"), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>

@@ -1,25 +1,26 @@
 <%= form_for(@sponsor_level) do |f| %>
-  <% if @sponsor_level.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sponsor_level.errors.count, "error") %> prohibited this sponsor_level from being saved:</h2>
-
-      <ul>
-      <% @sponsor_level.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :name, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_field :name%>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :order %><br>
-    <%= f.text_field :order %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :order, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.number_field :order%>
+      </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>

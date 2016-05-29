@@ -22,6 +22,25 @@
 		</div>
 
 		<div class="row align-center">
+			<div class="row columns small-12">
+				<%if notice%>
+					<div class="success callout columns small-12" data-closable>
+						<%= notice %>
+						<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+						    <span aria-hidden="true"><%=fa_icon("close")%></span>
+						</button>
+					</div>
+				<%elsif alert%>
+					<div class="alert callout columns small-12" data-closable>
+						<%= alert %>
+						<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+						    <span aria-hidden="true"><%=fa_icon("close")%></span>
+						</button>
+					</div>
+				<%end%>
+			</div>
+
+			<hr />
 			<div class="medium-10 columns">
 				<%= yield %>
 			</div>

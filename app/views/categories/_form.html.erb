@@ -1,21 +1,18 @@
 <%= form_for(@category) do |f| %>
-  <% if @category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
-      <ul>
-      <% @category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :name, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_field :name%>
+      </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>

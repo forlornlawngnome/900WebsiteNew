@@ -1,37 +1,50 @@
 <%= form_for(@post_content) do |f| %>
-  <% if @post_content.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post_content.errors.count, "error") %> prohibited this post_content from being saved:</h2>
-
-      <ul>
-      <% @post_content.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :post_id %><br>
-	<%= f.collection_select(:post_id, Post.all, :id, :title, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :post_id, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:post_id, Post.order("date_published desc"), :id, :title, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :content_type_id %><br>
-	<%= f.collection_select(:content_type_id, ContentType.all, :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :content_type_id, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:content_type_id, ContentType.order("name"), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :body, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.text_area :body, :rows=>4 %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :supplemental %><br>
-    <%= f.text_area :supplemental %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :supplemental, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.text_area :supplemental %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :post_order %><br>
-    <%= f.number_field :post_order %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :post_order, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.number_field :post_order %>
+      </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>

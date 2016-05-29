@@ -1,6 +1,14 @@
-<h1>Editing Competition</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @competition %> |
-<%= link_to 'Back', competitions_path %>
+<div class="columns callout small-12">
+	<div class="row title-bar">
+		<h4>Editing Competition</h4>
+	</div>
+	<%= render 'form' %>
+  	<div class="row">
+		<div class="small-3 medium-2 columns">
+		</div>
+		<div class="small-9 medium-10 columns">
+			<p class="text-right"><%= link_to 'Show', @competition %> |
+<%= link_to 'Back', competitions_path %></p>
+		</div>
+  	</div>
+</div>

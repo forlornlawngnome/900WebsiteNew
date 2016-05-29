@@ -14,4 +14,7 @@ class Year < ActiveRecord::Base
     range = "#{self.start_date.year}-#{self.end_date.year}"
     return range
   end
+  def self.find_year(date)
+    @years = Year.where("start_date<? and end_date>=?", date, date).first
+  end
 end

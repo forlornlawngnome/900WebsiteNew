@@ -1,25 +1,26 @@
 <%= form_for(@handbook) do |f| %>
-  <% if @handbook.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@handbook.errors.count, "error") %> prohibited this handbook from being saved:</h2>
-
-      <ul>
-      <% @handbook.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :handbook_link %><br>
-    <%= f.text_area :handbook_link %>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :about, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_area :about, :rows=>5%>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :about %><br>
-    <%= f.text_area :about %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :handbook_link, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_area :handbook_link%>
+      </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>

@@ -1,33 +1,44 @@
 <%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :year_id %><br>
-	<%= f.collection_select(:year_id, Year.all, :id, :range, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :title, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_field :title%>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :date_published %><br>
-    <%= f.date_select :date_published %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :year_id, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:year_id, Year.order("start_date desc"), :id, :range, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :date_published, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.date_select :date_published%>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :active %><br>
-    <%= f.check_box :active %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+	  	  <fieldset class=" small-12 columns">
+			  <%=f.check_box :active%>
+	  		  <%= f.label :active, :class=>"text-right middle"%>
+		  </fieldset>
+      </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>

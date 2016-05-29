@@ -1,29 +1,34 @@
 <%= form_for(@document_link) do |f| %>
-  <% if @document_link.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@document_link.errors.count, "error") %> prohibited this document_link from being saved:</h2>
-
-      <ul>
-      <% @document_link.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :document_id %><br>
-	<%= f.collection_select(:document_id, Document.all, :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :name, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_field :name%>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :doc_link %><br>
-    <%= f.text_area :doc_link %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :document_id, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:document_id, Document.order("name"), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :doc_link, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.text_area :doc_link %>
+      </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>

@@ -25,7 +25,7 @@ class CompetitionsController < ApplicationController
   # POST /competitions.json
   def create
     @competition = Competition.new(competition_params)
-
+    
     respond_to do |format|
       if @competition.save
         format.html { redirect_to @competition, notice: 'Competition was successfully created.' }
@@ -69,6 +69,8 @@ class CompetitionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def competition_params
-      params.require(:competition).permit(:name, :date, :year_id)
+      date = Date.new(params[:competition]["date(1i)"].to_i, params[:competition]["date(2i)"].to_i, params[:competition]["date(3i)"].to_i)
+      year = Year.find_year(date)
+      params.require(:competition).permit(:name, :date, :year_id).merge(year_id: year.id)
     end
 end

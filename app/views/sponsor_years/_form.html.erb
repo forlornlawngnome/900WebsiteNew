@@ -1,29 +1,34 @@
 <%= form_for(@sponsor_year) do |f| %>
-  <% if @sponsor_year.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sponsor_year.errors.count, "error") %> prohibited this sponsor_year from being saved:</h2>
-
-      <ul>
-      <% @sponsor_year.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :sponsor_id %><br>
-	<%= f.collection_select(:sponsor_id, Sponsor.all, :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :sponsor_id, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:sponsor_id, Sponsor.order(:name), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :year_id %><br>
-	<%= f.collection_select(:year_id, Year.all, :id, :end_date, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :year_id, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:year_id, Year.order("start_date desc"), :id, :range, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :sponsor_level_id %><br>
-	<%= f.collection_select(:sponsor_level_id, SponsorLevel.all, :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :sponsor_level_id, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:sponsor_level_id, SponsorLevel.order(:order), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>

@@ -1,6 +1,14 @@
-<h1>Editing Sponsor Level</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @sponsor_level %> |
-<%= link_to 'Back', sponsor_levels_path %>
+<div class="columns callout small-12">
+	<div class="row title-bar">
+		<h4>Sponsor Level</h4>
+	</div>
+	<%= render 'form' %>
+  	<div class="row">
+		<div class="small-3 medium-2 columns">
+		</div>
+		<div class="small-9 medium-10 columns">
+			<p class="text-right"><%= link_to 'Show', @sponsor_level %> |
+<%= link_to 'Back', sponsor_levels_path %></p>
+		</div>
+  	</div>
+</div>

@@ -1,38 +1,53 @@
 <%= form_for(@sponsor) do |f| %>
-  <% if @sponsor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sponsor.errors.count, "error") %> prohibited this sponsor from being saved:</h2>
-
-      <ul>
-      <% @sponsor.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :name, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_field :name%>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :logo_link %><br>
-    <%= f.file_field :logo_link %>
-	<% if f.object.logo_link? %>
-	      <%= image_tag f.object.logo_link.url %>
-	      <%= f.label :remove_logo_link %>
-	      <%= f.check_box :remove_logo_link %> 
-    <% end %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :sponsor_url, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_field :sponsor_url%>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :sponsor_url %><br>
-    <%= f.text_area :sponsor_url %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+	  	  <fieldset class=" small-12 columns">
+			  <%=f.check_box :active%>
+	  		  <%= f.label :active, :class=>"text-right middle"%>
+		  </fieldset>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :active %><br>
-    <%= f.check_box :active %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :logo_link, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		<%= f.file_field :logo_link %>
+		<% if f.object.logo_link? %>
+			<%= image_tag f.object.logo_link.url, :width=>300 %>
+		    <div class="row">
+		  	  <fieldset class=" small-12 columns">
+				  <%=f.check_box :remove_logo_link%>
+		  		  <%= f.label :remove_logo_link, :class=>"text-right middle"%>
+			  </fieldset>
+		    </div>
+		<% end %>
+      </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>

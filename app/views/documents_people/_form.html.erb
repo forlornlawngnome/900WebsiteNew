@@ -1,25 +1,26 @@
 <%= form_for(@documents_person) do |f| %>
-  <% if @documents_person.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@documents_person.errors.count, "error") %> prohibited this documents_person from being saved:</h2>
-
-      <ul>
-      <% @documents_person.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :person_id %><br>
-	<%= f.collection_select(:person_id, Person.all, :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :person_id, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:person_id, Person.order(:name), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :document_id %><br>
-	<%= f.collection_select(:document_id, Document.all, :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :document_id, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:document_id, Document.order(:name), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>

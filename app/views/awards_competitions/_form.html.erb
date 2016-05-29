@@ -1,29 +1,34 @@
 <%= form_for(@awards_competition) do |f| %>
-  <% if @awards_competition.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@awards_competition.errors.count, "error") %> prohibited this awards_competition from being saved:</h2>
-
-      <ul>
-      <% @awards_competition.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :competition_id %><br>
-	<%= f.collection_select(:competition_id, Competition.all, :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :competition_id, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:competition_id, Competition.order("date desc"), :id, :full_name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :award_id %><br>
-	<%= f.collection_select(:award_id, Award.all, :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :award_id, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:award_id, Award.order("name"), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :blurb %><br>
-    <%= f.text_area :blurb %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+  <div class="small-3 medium-2 columns">
+	  <%= f.label :blurb, :class=>"text-right middle"%>
+     </div>
+     <div class="small-9 medium-10 columns">
+	 	<%= f.text_area :blurb, :rows=>3 %>
+     </div>
+ </div>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>

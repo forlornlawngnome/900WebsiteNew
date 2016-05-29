@@ -1,38 +1,60 @@
 <%= form_for(@robot) do |f| %>
-  <% if @robot.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@robot.errors.count, "error") %> prohibited this robot from being saved:</h2>
 
-      <ul>
-      <% @robot.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :name, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_field :name%>
+      </div>
   </div>
-  <div class="field">
-	  <%=f.label :game_id%><br>
-	  <%= f.collection_select(:game_id, Game.all, :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :game_id, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:game_id, Game.order(:name), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :descripton %><br>
-    <%= f.text_area :descripton %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :descripton, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_area :descripton, :rows=>4%>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-	<% if f.object.image? %>
-	      <%= image_tag f.object.image.url %>
-	      <%= f.label :remove_image %>
-	      <%= f.check_box :remove_image %> 
-    <% end %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :name, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_field :name%>
+      </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :image, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		<%= f.file_field :image %>
+		<% if f.object.image? %>
+			<%= image_tag f.object.image.url, :width=>300 %>
+		    <div class="row">
+		  	  <fieldset class=" small-12 columns">
+				   <%=f.check_box :remove_image%>
+		  		  <%= f.label :remove_image, :class=>"text-right middle"%>
+			  </fieldset>
+		    </div>
+		<% end %>
+      </div>
+  </div>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>

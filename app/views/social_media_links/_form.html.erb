@@ -1,33 +1,43 @@
 <%= form_for(@social_media_link) do |f| %>
-  <% if @social_media_link.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@social_media_link.errors.count, "error") %> prohibited this social_media_link from being saved:</h2>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :name, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_field :name%>
+      </div>
+  </div>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :icon, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_field :icon%>
+      </div>
+  </div>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :media_url, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_area :media_url%>
+      </div>
+  </div>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :order, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.number_field :order%>
+      </div>
+  </div>
 
-      <ul>
-      <% @social_media_link.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :icon %><br>
-    <%= f.text_field :icon %>
-  </div>
-  <div class="field">
-    <%= f.label :media_url %><br>
-    <%= f.text_area :media_url %>
-  </div>
-  <div class="field">
-    <%= f.label :order %><br>
-    <%= f.number_field :order %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>

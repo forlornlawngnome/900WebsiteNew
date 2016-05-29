@@ -1,29 +1,38 @@
-<%= form_for(@about_content) do |f| %>
-  <% if @about_content.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@about_content.errors.count, "error") %> prohibited this about_content from being saved:</h2>
+<%= form_for(@about_content) do |f| %>	  
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :name, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_field :name%>
+      </div>
+  </div>
 
-      <ul>
-      <% @about_content.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :title, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_field :title%>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_area :title %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :content, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_area :content, :rows=>5%>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>
+
+	
+	
