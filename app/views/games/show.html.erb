@@ -31,22 +31,48 @@
 		</tr>
 	</table>
 	<hr />
-	<h4>Videos</h4>
-	<table class="hover stack">
-		<thead>
-			<th>Title</th>
-		</thead>
-		<tbody>
+	<div class="row">
+		<div class="columns small-12 medium-6">
+			<h4>Videos</h4>
+			<table class="hover stack">
+				<thead>
+					<th>Title</th>
+				</thead>
+				<tbody>
 		
-			<%@game.game_videos.each do |video|%>
-				<tr>
-					<td>
-						<%=link_to video.title, video%>
-					</td>
-				</tr>
-			<%end%>
-		</tbody>
-	</table>
+					<%@game.game_videos.each do |video|%>
+						<tr>
+							<td>
+								<%=link_to video.title, video%>
+							</td>
+						</tr>
+					<%end%>
+				</tbody>
+			</table>
+		</div>
+		<div class="columns small-12 medium-6">
+			<h4>Competitions</h4>
+			<table class="hover stack">
+				<thead>
+					<th>Name</th>
+					<th>Date</th>
+				</thead>
+				<tbody>
+		
+					<%@game.competitions.each do |comp|%>
+						<tr>
+							<td>
+								<%=link_to comp.name, comp%>
+							</td>
+							<td>
+								<%=comp.date%>
+							</td>
+						</tr>
+					<%end%>
+				</tbody>
+			</table>
+		</div>
+	</div>
 	<hr />
   	<div class="row">
 		
