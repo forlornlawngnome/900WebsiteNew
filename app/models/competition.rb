@@ -4,6 +4,6 @@ class Competition < ActiveRecord::Base
   has_many :awards_competitions
   
   def full_name
-    "#{self.name} (#{self.year.range})"
+    "#{self.name} (#{self.game.name})"
   end
 end
