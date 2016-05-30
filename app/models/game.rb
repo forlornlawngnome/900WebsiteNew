@@ -4,4 +4,7 @@ class Game < ActiveRecord::Base
   has_one :robot
   has_many :competitions
   has_many :awards, :through=>:competitions
+  
+  validates_presence_of :name, :year_id
+  
 end

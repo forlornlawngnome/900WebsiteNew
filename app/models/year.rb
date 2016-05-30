@@ -6,6 +6,8 @@ class Year < ActiveRecord::Base
   has_one :robot
   has_many :competitions, :through=>:game
   
+  validates_presence_of :start_date, :end_date
+  
   def self.current_year
     return Year.where("start_date <=? and end_date >=?",Date.today, Date.today).first
   end

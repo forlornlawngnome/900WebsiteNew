@@ -29,7 +29,7 @@
 			<%@award.awards_competitions.each do |award_comp|%>
 				<tr>
 					<td>
-						<%=link_to award_comp.competition.year.range, award_comp.competition.year%>
+						<%=link_to award_comp.competition.game.year.range, award_comp.competition.game.year%>
 					</td>
 					<td>
 						<%=link_to award_comp.competition.name, award_comp.competition%>
