@@ -71,6 +71,7 @@ class CompetitionsController < ApplicationController
     def competition_params
       date = Date.new(params[:competition]["date(1i)"].to_i, params[:competition]["date(2i)"].to_i, params[:competition]["date(3i)"].to_i)
       year = Year.find_year(date)
-      params.require(:competition).permit(:name, :date, :year_id).merge(year_id: year.id)
+      game = year.game
+      params.require(:competition).permit(:name, :date, :game_id).merge(game_id: game.id)
     end
 end

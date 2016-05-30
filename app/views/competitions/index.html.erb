@@ -14,7 +14,7 @@
     <tr>
       <th>Name</th>
       <th>Date</th>
-      <th>Year</th>
+      <th>Game</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -24,7 +24,7 @@
       <tr>
         <td><%= link_to competition.name, competition %></td>
         <td><%= competition.date %></td>
-        <td><%= link_to competition.year.range, competition.year %></td>
+        <td><%= link_to competition.game.name, competition.game rescue ""%></td>
         <td><%= link_to fa_icon("pencil"), edit_competition_path(competition) %></td>
         <td><%= link_to fa_icon("trash"), competition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

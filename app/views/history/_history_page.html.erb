@@ -32,13 +32,13 @@
 			<%@game.game_videos.each_with_index do |video, i|%>
 				<%if i==0%>
 					 <div class="tabs-panel is-active" id=<%=video.title.downcase.gsub(/ +/,'_')%>>
-				 		<div class="video-wrapper">
+				 		<div class="flex-video widescreen">
 				 			<%=video.link.html_safe%>
 				 		</div>
 					 </div>
 				<%else%>
 					 <div class="tabs-panel" id=<%=video.title.downcase.gsub(/ +/,'_')%>>
-				 		<div class="video-wrapper">
+				 		<div class="flex-video widescreen">
 				 			<%=video.link.html_safe%>
 				 		</div>
 					 </div>
@@ -72,7 +72,7 @@
 				<div class="column small-12 medium-4">
 					<h5><u>Competitions & Awards</u></h5>
 					<dl>
-						<%@game.year.competitions.order("date asc").each do |competition|%>
+						<%@game.competitions.order("date asc").each do |competition|%>
 							<dt><%=competition.name%></dt>
 							<%competition.awards_competitions.each do |award_comp|%>
 								<dd>

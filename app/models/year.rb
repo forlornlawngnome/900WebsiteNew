@@ -4,7 +4,7 @@ class Year < ActiveRecord::Base
   has_many :sponsor_levels, :through=>:sponsor_years
   has_one :game
   has_one :robot
-  has_many :competitions
+  has_many :competitions, :through=>:game
   
   def self.current_year
     return Year.where("start_date <=? and end_date >=?",Date.today, Date.today).first

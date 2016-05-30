@@ -16,10 +16,10 @@
 			</td>
 		</tr>
 		<tr>
-			<th class="pull-right show-for-large">Year</th>
-			<th class="hide-for-large">Year</th>
+			<th class="pull-right show-for-large">Game</th>
+			<th class="hide-for-large">Game</th>
 			<td>
-				<%= @competition.year.range %>
+				<%= link_to @competition.game.name, @competition.game rescue ""%>
 			</td>
 		</tr>
 	</table>
