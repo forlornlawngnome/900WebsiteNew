@@ -1,19 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Document:</strong>
-  <%= @document_link.document %>
-</p>
-
-<p>
-  <strong>Doc link:</strong>
-  <%= @document_link.doc_link %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @document_link.name %>
-</p>
-
-<%= link_to 'Edit', edit_document_link_path(@document_link) %> |
-<%= link_to 'Back', document_links_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Name</th>
+			<th class="hide-for-large">Name</th>
+			<td>
+				<%= @document_link.name %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Document</th>
+			<th class="hide-for-large">Document</th>
+			<td>
+				<%= link_to @document_link.document.name, @document_link.document %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Link</th>
+			<th class="hide-for-large">Link</th>
+			<td>
+				<%= link_to @document_link.doc_link, @document_link.doc_link, :target=>"_blank"%>
+			</td>
+		</tr>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_document_link_path(@document_link), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', document_links_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @document_link, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

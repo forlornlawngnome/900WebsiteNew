@@ -1,14 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @year.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @year.end_date %>
-</p>
-
-<%= link_to 'Edit', edit_year_path(@year) %> |
-<%= link_to 'Back', years_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Start Date</th>
+			<th class="hide-for-large">Start Date</th>
+			<td>
+				<%= @year.start_date %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">End Date</th>
+			<th class="hide-for-large">End Date</th>
+			<td>
+				<%= @year.end_date %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Game</th>
+			<th class="hide-for-large">Game</th>
+			<td>
+				<%= link_to @year.game.name, @year.game %>
+			</td>
+		</tr>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_year_path(@year), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', years_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @year, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

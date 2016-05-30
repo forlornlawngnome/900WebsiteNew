@@ -1,9 +1,50 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @content_type.name %>
-</p>
-
-<%= link_to 'Edit', edit_content_type_path(@content_type) %> |
-<%= link_to 'Back', content_types_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Name</th>
+			<th class="hide-for-large">Name</th>
+			<td>
+				<%= @content_type.name %>
+			</td>
+		</tr>
+	</table>
+	<hr />
+	<h4>Post Content</h4>
+	<table class="hover stack">
+		<thead>
+			<th>Post Title</th>
+			<th>Content</th>
+			<th>Supplemental</th>
+		</thead>
+		<tbody>
+		
+			<%@content_type.post_contents.each do |content|%>
+				<tr>
+					<td>
+						<%=content.post.title%>
+					</td>
+					<td>
+						<%=render "/post_contents/post_content", :content=>content%>
+					</td>
+					<td>
+						<%=content.supplemental%>
+					</td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_content_type_path(@content_type), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', content_types_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @content_type, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

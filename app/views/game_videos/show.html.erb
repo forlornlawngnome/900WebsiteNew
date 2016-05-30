@@ -1,19 +1,41 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Game:</strong>
-  <%= @game_video.game %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @game_video.title %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= @game_video.link %>
-</p>
-
-<%= link_to 'Edit', edit_game_video_path(@game_video) %> |
-<%= link_to 'Back', game_videos_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Title</th>
+			<th class="hide-for-large">Title</th>
+			<td>
+				<%= @game_video.title %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Game</th>
+			<th class="hide-for-large">Game</th>
+			<td>
+				<%= link_to @game_video.game.name, @game_video.game %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Video</th>
+			<th class="hide-for-large">Video</th>
+			<td>
+		 		<div class="video-wrapper">
+		 			<%=@game_video.link.html_safe%>
+		 		</div>
+			</td>
+		</tr>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_game_video_path(@game_video), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', game_videos_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @game_video, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

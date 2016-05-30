@@ -1,14 +1,53 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @sponsor_level.name %>
-</p>
-
-<p>
-  <strong>Order:</strong>
-  <%= @sponsor_level.order %>
-</p>
-
-<%= link_to 'Edit', edit_sponsor_level_path(@sponsor_level) %> |
-<%= link_to 'Back', sponsor_levels_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Name</th>
+			<th class="hide-for-large">Name</th>
+			<td>
+				<%= @sponsor_level.name %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Order</th>
+			<th class="hide-for-large">Order</th>
+			<td>
+				<%= @sponsor_level.order %>
+			</td>
+		</tr>
+	</table>
+	<hr />
+	<h4>Sponsors</h4>
+	<table class="hover stack">
+		<thead>
+			<th>Sponsor</th>
+			<th>Sponsor's URL</th>
+		</thead>
+		<tbody>
+		
+			<%@sponsor_level.sponsors.each do |sponsor|%>
+				<tr>
+					<td>
+						<%=link_to sponsor.name, sponsor%>
+					</td>
+					<td>
+						<%=link_to sponsor.sponsor_url, sponsor.sponsor_url, :target=>"_blank"%>
+					</td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_sponsor_level_path(@sponsor_level), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', sponsor_levels_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @sponsor_level, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

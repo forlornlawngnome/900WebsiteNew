@@ -1,29 +1,74 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @person.name %>
-</p>
-
-<p>
-  <strong>Role:</strong>
-  <%= @person.role.name rescue "" %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @person.image.url %>
-</p>
-
-<p>
-  <strong>Year start:</strong>
-  <%= @person.year_start %>
-</p>
-
-<p>
-  <strong>Year end:</strong>
-  <%= @person.year_end %>
-</p>
-
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Name</th>
+			<th class="hide-for-large">Name</th>
+			<td>
+				<%= @person.name %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Role</th>
+			<th class="hide-for-large">Role</th>
+			<td>
+				<%= link_to @person.role.name, @person.role rescue "" %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Year Start</th>
+			<th class="hide-for-large">Year Start</th>
+			<td>
+				<%= @person.year_start %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Year End</th>
+			<th class="hide-for-large">Year End</th>
+			<td>
+				<%= @person.year_end %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Image</th>
+			<th class="hide-for-large">Image</th>
+			<td>
+				<%= image_tag @person.image %>
+			</td>
+		</tr>
+	</table>
+	<hr />
+	<h4>Documents Written</h4>
+	<table class="hover stack">
+		<thead>
+			<th>Name</th>
+			<th>Date Published</th>
+		</thead>
+		<tbody>
+		
+			<%@person.documents.each do |doc|%>
+				<tr>
+					<td>
+						<%=link_to doc.name, doc%>
+					</td>
+					<td>
+						<%=doc.date_published%>
+					</td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_person_path(@person), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', people_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @person, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

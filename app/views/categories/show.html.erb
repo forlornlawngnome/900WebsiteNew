@@ -1,9 +1,59 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Name</th>
+			<th class="hide-for-large">Name</th>
+			<td>
+				<%= @category.name %>
+			</td>
+		</tr>
+	</table>
+	<hr />
+	<h4>Related Posts</h4>
+	<table class="hover stack">
+		<thead>
+			<th>Post Title</th>
+		</thead>
+		<tbody>
+		
+			<%@category.posts.each do |post|%>
+				<tr>
+					<td>
+						<%=link_to post.title, post%>
+					</td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+	<hr />
+	<h4>Related Documents</h4>
+	<table class="hover stack">
+		<thead>
+			<th>Document Name</th>
+		</thead>
+		<tbody>
+		
+			<%@category.documents.each do |doc|%>
+				<tr>
+					<td>
+						<%=link_to doc.name, doc%>
+					</td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_category_path(@category), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', categories_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @category, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

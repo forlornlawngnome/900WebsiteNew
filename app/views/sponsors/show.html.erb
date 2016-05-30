@@ -1,24 +1,67 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @sponsor.name %>
-</p>
-
-<p>
-  <strong>Logo link:</strong>
-  <%= image_tag @sponsor.logo_link.url %>
-</p>
-
-<p>
-  <strong>Sponsor url:</strong>
-  <%= @sponsor.sponsor_url %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @sponsor.active %>
-</p>
-
-<%= link_to 'Edit', edit_sponsor_path(@sponsor) %> |
-<%= link_to 'Back', sponsors_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Name</th>
+			<th class="hide-for-large">Name</th>
+			<td>
+				<%= @sponsor.name %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">URL</th>
+			<th class="hide-for-large">URL</th>
+			<td>
+				<%= link_to @sponsor.sponsor_url, @sponsor.sponsor_url, :target=>"_blank" %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Active</th>
+			<th class="hide-for-large">Active</th>
+			<td>
+				<%= @sponsor.active %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Logo</th>
+			<th class="hide-for-large">Logo</th>
+			<td>
+				<%= image_tag @sponsor.logo_link.url %>
+			</td>
+		</tr>
+	</table>
+	<hr />
+	<h4>Sponsorships</h4>
+	<table class="hover stack">
+		<thead>
+			<th>Year</th>
+			<th>Level</th>
+		</thead>
+		<tbody>
+		
+			<%@sponsor.sponsor_years.joins(:year).order("start_date desc").each do |spon_year|%>
+				<tr>
+					<td>
+						<%=link_to spon_year.year.range, spon_year.year%>
+					</td>
+					<td>
+						<%=link_to spon_year.sponsor_level.name, spon_year.sponsor_level%>
+					</td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_sponsor_path(@sponsor), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', sponsors_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @sponsor, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

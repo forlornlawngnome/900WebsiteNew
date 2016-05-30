@@ -1,19 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Sponsor:</strong>
-  <%= @sponsor_year.sponsor %>
-</p>
-
-<p>
-  <strong>Year:</strong>
-  <%= @sponsor_year.year %>
-</p>
-
-<p>
-  <strong>Sponsor level:</strong>
-  <%= @sponsor_year.sponsor_level %>
-</p>
-
-<%= link_to 'Edit', edit_sponsor_year_path(@sponsor_year) %> |
-<%= link_to 'Back', sponsor_years_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Sponsor</th>
+			<th class="hide-for-large">Sponsor</th>
+			<td>
+				<%= link_to @sponsor_year.sponsor.name, @sponsor_year.sponsor %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Year</th>
+			<th class="hide-for-large">Year</th>
+			<td>
+				<%= link_to @sponsor_year.year.range, @sponsor_year.year %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Sponsor Level</th>
+			<th class="hide-for-large">Sponsor Level</th>
+			<td>
+				<%= link_to @sponsor_year.sponsor_level.name, @sponsor_year.sponsor_level %>
+			</td>
+		</tr>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_sponsor_year_path(@sponsor_year), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', sponsor_years_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @sponsor_year, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

@@ -1,4 +1,5 @@
 class Sponsor < ActiveRecord::Base
+  has_many :sponsor_years
   mount_uploader :logo_link, ImageUploader
   
   def self.current_institutional_sponsors

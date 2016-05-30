@@ -1,19 +1,60 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @competition.name %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @competition.date %>
-</p>
-
-<p>
-  <strong>Year:</strong>
-  <%= @competition.year %>
-</p>
-
-<%= link_to 'Edit', edit_competition_path(@competition) %> |
-<%= link_to 'Back', competitions_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Name</th>
+			<th class="hide-for-large">Name</th>
+			<td>
+				<%= @competition.name %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Date</th>
+			<th class="hide-for-large">Date</th>
+			<td>
+				<%= @competition.date %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Year</th>
+			<th class="hide-for-large">Year</th>
+			<td>
+				<%= @competition.year.range %>
+			</td>
+		</tr>
+	</table>
+	<hr />
+	<h4>Awards Won at Competition</h4>
+	<table class="hover stack">
+		<thead>
+			<th>Award</th>
+			<th>Description</th>
+		</thead>
+		<tbody>
+		
+			<%@competition.awards_competitions.each do |award_comp|%>
+				<tr>
+					<td>
+						<%=link_to award_comp.award.name, award_comp.award%>
+					</td>
+					<td>
+						<%=link_to award_comp.blurb, award_comp%>
+					</td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_competition_path(@competition), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', competitions_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @competition, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

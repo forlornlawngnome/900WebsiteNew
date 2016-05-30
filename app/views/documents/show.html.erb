@@ -1,24 +1,66 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @document.name %>
-</p>
-
-<p>
-  <strong>Date published:</strong>
-  <%= @document.date_published %>
-</p>
-
-<p>
-  <strong>About:</strong>
-  <%= @document.about %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @document.category %>
-</p>
-
-<%= link_to 'Edit', edit_document_path(@document) %> |
-<%= link_to 'Back', documents_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Name</th>
+			<th class="hide-for-large">Name</th>
+			<td>
+				<%= @document.name %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Date published</th>
+			<th class="hide-for-large">Date published</th>
+			<td>
+				<%= @document.date_published %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">About</th>
+			<th class="hide-for-large">About</th>
+			<td>
+				<%= @document.about.html_safe %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Category</th>
+			<th class="hide-for-large">Category</th>
+			<td>
+				<%= link_to @document.category.name, @document.category %>
+			</td>
+		</tr>
+	</table>
+	<hr />
+	<h4>Authors</h4>
+	<table class="hover stack">
+		<thead>
+			<th>Name</th>
+			<th>Role</th>
+		</thead>
+		<tbody>
+			<%@document.people.each do |person|%>
+				<tr>
+					<td>
+						<%=link_to person.name, person%>
+					</td>
+					<td>
+						<%=link_to person.role.name, person.role rescue ""%>
+					</td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_document_path(@document), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', documents_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @document, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

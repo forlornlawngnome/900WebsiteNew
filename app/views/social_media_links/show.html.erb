@@ -1,24 +1,46 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @social_media_link.name %>
-</p>
-
-<p>
-  <strong>Icon:</strong>
-  <%= @social_media_link.icon %>
-</p>
-
-<p>
-  <strong>Media url:</strong>
-  <%= @social_media_link.media_url %>
-</p>
-
-<p>
-  <strong>Order:</strong>
-  <%= @social_media_link.order %>
-</p>
-
-<%= link_to 'Edit', edit_social_media_link_path(@social_media_link) %> |
-<%= link_to 'Back', social_media_links_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Name</th>
+			<th class="hide-for-large">Name</th>
+			<td>
+				<%= @social_media_link.name %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Icon</th>
+			<th class="hide-for-large">Icon</th>
+			<td>
+				<%= fa_icon @social_media_link.icon %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Media URL</th>
+			<th class="hide-for-large">Media URL</th>
+			<td>
+				<%= link_to @social_media_link.media_url, @social_media_link.media_url, :target=>"_blank" %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Order</th>
+			<th class="hide-for-large">Order</th>
+			<td>
+				<%= @social_media_link.order %>
+			</td>
+		</tr>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_social_media_link_path(@social_media_link), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', social_media_links_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @social_media_link, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

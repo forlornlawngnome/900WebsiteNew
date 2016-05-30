@@ -1,14 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Handbook link:</strong>
-  <%= @handbook.handbook_link %>
-</p>
-
-<p>
-  <strong>About:</strong>
-  <%= @handbook.about %>
-</p>
-
-<%= link_to 'Edit', edit_handbook_path(@handbook) %> |
-<%= link_to 'Back', handbooks_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Handbook Link</th>
+			<th class="hide-for-large">Handbook Link</th>
+			<td>
+				<%= link_to @handbook.handbook_link, @handbook.handbook_link, :target=>"_blank" %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">About</th>
+			<th class="hide-for-large">About</th>
+			<td>
+				<%= @handbook.about.html_safe %>
+			</td>
+		</tr>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_handbook_path(@handbook), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', handbooks_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @handbook, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

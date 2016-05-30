@@ -1,14 +1,33 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @about_photo.name %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @about_photo.image %>
-</p>
-
-<%= link_to 'Edit', edit_about_photo_path(@about_photo) %> |
-<%= link_to 'Back', about_photos_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Name</th>
+			<th class="hide-for-large">Name</th>
+			<td>
+				<%= @about_photo.name %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Image</th>
+			<th class="hide-for-large">Image</th>
+			<td>
+				<%= image_tag @about_photo.image %>
+			</td>
+		</tr>
+	</table>
+	
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_about_photo_path(@about_photo), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', about_photos_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @about_photo, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

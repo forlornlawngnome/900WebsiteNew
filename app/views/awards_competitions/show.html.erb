@@ -1,19 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Competition:</strong>
-  <%= @awards_competition.competition %>
-</p>
-
-<p>
-  <strong>Award:</strong>
-  <%= @awards_competition.award %>
-</p>
-
-<p>
-  <strong>Blurb:</strong>
-  <%= @awards_competition.blurb %>
-</p>
-
-<%= link_to 'Edit', edit_awards_competition_path(@awards_competition) %> |
-<%= link_to 'Back', awards_competitions_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Competition</th>
+			<th class="hide-for-large">Competition</th>
+			<td>
+				<%=link_to @awards_competition.competition.name, @awards_competition.competition %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Award</th>
+			<th class="hide-for-large">Award</th>
+			<td>
+				<%=link_to @awards_competition.award.name, @awards_competition.award %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Description</th>
+			<th class="hide-for-large">Description</th>
+			<td>
+				<%= @awards_competition.blurb %>
+			</td>
+		</tr>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_awards_competition_path(@awards_competition), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', awards_competitions_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @awards_competition, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

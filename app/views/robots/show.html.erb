@@ -1,24 +1,46 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @robot.name %>
-</p>
-
-<p>
-  <strong>Game:</strong>
-  <%= @robot.game.name %>
-</p>
-
-<p>
-  <strong>Descripton:</strong>
-  <%= @robot.descripton %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @robot.image.url %>
-</p>
-
-<%= link_to 'Edit', edit_robot_path(@robot) %> |
-<%= link_to 'Back', robots_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Name</th>
+			<th class="hide-for-large">Name</th>
+			<td>
+				<%= @robot.name %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Game</th>
+			<th class="hide-for-large">Game</th>
+			<td>
+				<%= link_to @robot.game.name, @robot.game %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Description</th>
+			<th class="hide-for-large">Description</th>
+			<td>
+				<%= @robot.descripton.html_safe %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Image</th>
+			<th class="hide-for-large">Image</th>
+			<td>
+				<%= image_tag @robot.image %>
+			</td>
+		</tr>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_robot_path(@robot), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', robots_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @robot, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

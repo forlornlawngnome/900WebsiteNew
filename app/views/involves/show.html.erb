@@ -1,14 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Blurb:</strong>
-  <%= @involf.blurb %>
-</p>
-
-<p>
-  <strong>Order:</strong>
-  <%= @involf.order %>
-</p>
-
-<%= link_to 'Edit', edit_involf_path(@involf) %> |
-<%= link_to 'Back', involves_path %>
+<div class="columns callout small-12">
+	<br />
+	<table class="hover stack">
+		<tr>
+			<th class="pull-right show-for-large">Blurb</th>
+			<th class="hide-for-large">Blurb</th>
+			<td>
+				<%= @involf.blurb.html_safe %>
+			</td>
+		</tr>
+		<tr>
+			<th class="pull-right show-for-large">Order</th>
+			<th class="hide-for-large">Order</th>
+			<td>
+				<%= @involf.order %>
+			</td>
+		</tr>
+	</table>
+	<hr />
+  	<div class="row">
+		
+		<div class="small-12 medium-5 columns">
+			<%= link_to fa_icon("pencil"), edit_involf_path(@involf), :class=>"button expanded"%>
+		</div>
+		<div class="small-12 medium-5 columns">
+			<%= link_to 'Back', involves_path , :class=>"button secondary expanded"%>
+		</div>
+		<div class="small-12 medium-2 columns">
+			<%= link_to fa_icon("trash"), @involf, method: :delete, data: { confirm: 'Are you sure?' } , :class=>"alert button expanded"%>
+		</div>
+  	</div>
+</div>

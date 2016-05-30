@@ -1,3 +1,4 @@
 class Award < ActiveRecord::Base
   has_and_belongs_to_many :competitons
+  has_many :awards_competitions
 end
