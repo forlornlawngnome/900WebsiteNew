@@ -86,3 +86,35 @@
 		</div>
 	<%end%>
 </div>
+<div class="row  align-justify">
+	<%if !@sponsors_by_level.empty?%>
+		<div class="columns callout">
+			<div class="row title-bar">
+				<h4>Our Sponsors</h4>
+			</div>
+			<%@sponsors_by_level.each do |sponsor_level|%>
+				<h5><b><%=sponsor_level[0].name%></b></h5>
+				<br />
+				<%offset = sponsor_level[0].order<=2 ? 3 : 1 %>
+				<div class="row small-up-1 medium-up-<%=sponsor_level[0].order+offset%>">
+					<%sponsors = sponsor_level[1].sort_by{|s| s.sponsor.name.downcase}%>
+					<%sponsors.each do |sponsor_year|%>
+						<%sponsor = sponsor_year.sponsor%>
+						<div class="column">
+							<%if sponsor_level[0].order <= 2%>
+								<%if sponsor.logo_link? %>
+									<%=sponsor_logo_link sponsor%>
+								<%else%>
+									<%=sponsor_name_link sponsor%>
+								<%end%>
+							<%else%>
+								<%=sponsor_name_link sponsor%>
+							<%end%>
+						</div>
+					<%end%>
+				</div>
+				<br />
+			<%end%>
+		</div>
+	<%end%>
+</div>

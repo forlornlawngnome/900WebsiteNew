@@ -8,7 +8,7 @@ class HistoryController < ApplicationController
     else
       @game = Year.current_year.game
     end
-    
+    @sponsors_by_level = @game.year.sponsor_years.group_by{ |sponsor| sponsor.sponsor_level}.sort_by{ |order| order[0].order}
     #doesn't render normal page layout
     render layout: false
   end
