@@ -14,7 +14,7 @@
     <tr>
       <th>Name</th>
 	  <th>Game</th>
-      <th>Descripton</th>
+      <th>Description</th>
       <th>Image</th>
       <th colspan="2"></th>
     </tr>
@@ -25,7 +25,7 @@
       <tr>
         <td><%= link_to robot.name, robot %></td>
 		<td><%= link_to robot.game.name, robot.game %></td>
-        <td><%= robot.descripton.html_safe %></td>
+        <td><%= robot.description.html_safe %></td>
         <td><%= image_tag robot.image, :width=>100 %></td>
         <td><%= link_to fa_icon("pencil"), edit_robot_path(robot) %></td>
         <td><%= link_to fa_icon("trash"), robot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
