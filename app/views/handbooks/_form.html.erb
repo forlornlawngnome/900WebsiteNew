@@ -1,4 +1,15 @@
 <%= form_for(@handbook) do |f| %>
+	<% if @handbook.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@handbook.errors.count, "error") %> prohibited this handbook from being saved:</h2>
+
+			<ul>
+				<% @handbook.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %> 
   <br />
   <div class="row">
 	  <div class="small-3 medium-2 columns">

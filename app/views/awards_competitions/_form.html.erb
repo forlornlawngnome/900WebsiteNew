@@ -1,4 +1,15 @@
 <%= form_for(@awards_competition) do |f| %>
+	<% if @awards_competition.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@awards_competition.errors.count, "error") %> prohibited this awards_competition from being saved:</h2>
+
+			<ul>
+				<% @awards_competition.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %> 
   <br />
   <div class="row">
 	  <div class="small-3 medium-2 columns">

@@ -1,4 +1,15 @@
 <%= form_for(@post_content) do |f| %>
+	<% if @post_content.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@post_content.errors.count, "error") %> prohibited this post_content from being saved:</h2>
+
+			<ul>
+				<% @post_content.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %> 
   <br />
   <div class="row">
 	  <div class="small-3 medium-2 columns">

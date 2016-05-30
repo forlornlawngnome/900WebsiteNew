@@ -1,4 +1,15 @@
 <%= form_for(@documents_person) do |f| %>
+	<% if @documents_person.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@documents_person.errors.count, "error") %> prohibited this documents_person from being saved:</h2>
+
+			<ul>
+				<% @documents_person.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %> 
   <br />
   <div class="row">
 	  <div class="small-3 medium-2 columns">

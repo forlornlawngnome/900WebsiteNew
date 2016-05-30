@@ -1,4 +1,15 @@
 <%= form_for(@game_video) do |f| %>
+	<% if @game_video.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@game_video.errors.count, "error") %> prohibited this game_video from being saved:</h2>
+
+			<ul>
+				<% @game_video.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %> 
   <br />
   <div class="row">
 	  <div class="small-3 medium-2 columns">

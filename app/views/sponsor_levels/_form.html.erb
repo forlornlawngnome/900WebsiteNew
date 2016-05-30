@@ -1,4 +1,15 @@
 <%= form_for(@sponsor_level) do |f| %>
+	<% if @sponsor_level.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@sponsor_level.errors.count, "error") %> prohibited this sponsor_level from being saved:</h2>
+
+			<ul>
+				<% @sponsor_level.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %> 
   <br />
   <div class="row">
 	  <div class="small-3 medium-2 columns">
