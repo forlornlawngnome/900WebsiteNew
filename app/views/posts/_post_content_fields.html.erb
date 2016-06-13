@@ -1,0 +1,46 @@
+<div class="nested-fields">
+	<hr />
+	<div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :content_type_id, :class=>"text-right middle"%>
+	    </div>
+	    <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:content_type_id, ContentType.order("name"), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+	    </div>
+	</div>
+	<div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :body, :class=>"text-right middle"%>
+	    </div>
+	    <div class="small-9 medium-10 columns">
+		  <%= f.text_area :body, :rows=>4, :placeholder => "If it is a paragraph, just enter the body text. Videos should be you-tube, just copy the embeded link. Images should be a link to the image url, make sure the image is public, or only the owners will be able to see it. " %>
+	    </div>
+	</div>
+	<div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :supplemental, :class=>"text-right middle"%>
+	    </div>
+	    <div class="small-9 medium-10 columns">
+		  <%= f.text_area :supplemental, :placeholder =>"This is only needed if its an image or video" %>
+	    </div>
+	</div>
+	<div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :post_order, :class=>"text-right middle"%>
+	    </div>
+	    <div class="small-9 medium-10 columns">
+		  <%= f.number_field :post_order %>
+	    </div>
+	</div>
+	<% if f.object.persisted? %>
+		<div class="row">
+	  	  	<div class="small-3 medium-2 columns">
+	        </div>
+	        <div class="small-9 medium-10 columns">
+	  	  	  <fieldset class=" small-12 columns">
+	  	  		  <%= link_to_remove_association "Remove Post Content", f%>
+	  		  </fieldset>
+	        </div>
+		</div>
+	<%end%>
+</div>

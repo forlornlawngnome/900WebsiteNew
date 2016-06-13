@@ -39,6 +39,7 @@ gem 'carrierwave', '~> 0.10.0'
 
 gem 'kaminari' #pagination
 gem 'ransack' #filtering
+gem 'cocoon' #multi model forms
 
 
 group :development, :test do
