@@ -1,0 +1,30 @@
+<div class="nested-fields">
+  <hr />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :name, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_field :name%>
+      </div>
+  </div>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :doc_link, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.text_area :doc_link %>
+      </div>
+  </div>
+  <% if f.object.persisted? %>
+	<div class="row">
+  	  	<div class="small-3 medium-2 columns">
+        </div>
+        <div class="small-9 medium-10 columns">
+  	  	  <fieldset class=" small-12 columns">
+  	  		  <%= link_to_remove_association "Remove Document Link", f%>
+  		  </fieldset>
+        </div>
+	</div>
+  <%end%>
+</div>

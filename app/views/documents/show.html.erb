@@ -31,6 +31,26 @@
 		</tr>
 	</table>
 	<hr />
+	<h4>Document Links</h4>
+	<table class="hover stack">
+		<thead>
+			<th>Name</th>
+			<th>Link</th>
+		</thead>
+		<tbody>
+			<%@document.document_links.each do |link|%>
+				<tr>
+					<td>
+						<%=link_to link.name, link%>
+					</td>
+					<td>
+						<%=link_to link.doc_link, link.doc_link, :target=>"_blank" rescue ""%>
+					</td>
+				</tr>
+			<%end%>
+		</tbody>
+	</table>
+	<hr />
 	<h4>Authors</h4>
 	<table class="hover stack">
 		<thead>

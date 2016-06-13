@@ -29,10 +29,10 @@
   </div>
   <div class="row">
 	  <div class="small-3 medium-2 columns">
-		  <%= f.label :date_published, :class=>"text-right middle"%>
+		  <%= f.label :about, :class=>"text-right middle"%>
       </div>
       <div class="small-9 medium-10 columns">
-		  <%= f.text_area :about %>
+		  <%= f.text_area :about, :rows=>3 %>
       </div>
   </div>
   <div class="row">
@@ -41,6 +41,18 @@
       </div>
       <div class="small-9 medium-10 columns">
 		  <%= f.collection_select(:category_id, Category.order(:name), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
+  </div>
+  <%= f.fields_for :document_links do |builder| %>
+  	<%=render 'document_link_fields', f: builder%>
+  <% end %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+	  	  <fieldset class=" small-12 columns">
+  			  <%=link_to_add_association 'Add Document Link', f, :document_links%>
+		  </fieldset>
       </div>
   </div>
   <div class="row">
