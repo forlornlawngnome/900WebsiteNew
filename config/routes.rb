@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :about_photos
   resources :schools
   get 'about/about_us'
+  get 'about_site', :as=>"about_site", :to=> "about#about_site"
 
   resources :about_contents
   get 'history(/:game)', :as=>"history", :to=> "history#history"

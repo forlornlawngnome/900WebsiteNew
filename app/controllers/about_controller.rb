@@ -8,4 +8,6 @@ class AboutController < ApplicationController
     @mascot_photo = AboutPhoto.where(:name=>"mascot").first
     @mascot_info = AboutContent.where(:name=>"mascot").first
   end
+  def about_site
+  end
 end
