@@ -43,6 +43,16 @@
 		  <%= f.collection_select(:category_id, Category.order(:name), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
       </div>
   </div>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label "Authors", :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_check_boxes(:person_ids, Person.all, :id, :name, checked: @document.people.map(&:id)) do |b| %>    
+		      <%= b.check_box %> <%= b.label %>
+		  <% end %>
+      </div>
+  </div>
   <%= f.fields_for :document_links do |builder| %>
   	<%=render 'document_link_fields', f: builder%>
   <% end %>
