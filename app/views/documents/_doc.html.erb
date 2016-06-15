@@ -9,12 +9,12 @@
 			<%authors=""%>
 			<%doc.people.each do |person|%>
 				<%if !first%>
-					<%authors="#{authors}, "%>
+					<%= "<a data-open=\"person-#{person.id}\">#{authors},</a> ".html_safe%></a>
 				<%end%>
-				<%authors="#{authors}#{person.name}"%>
+				<%="<a data-open=\"person-#{person.id}\">#{authors}#{person.name}</a>".html_safe%></a>
 				<%first=false%>
 			<%end%>
-			<%=authors%>
+			
 		</i>
 	</p>
 	<p>

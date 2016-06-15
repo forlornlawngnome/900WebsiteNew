@@ -19,6 +19,7 @@ class DocumentsController < ApplicationController
   
   def labs
     @categories =Category.joins(:documents).order("name").uniq.all
+    @people = Person.all
   end
 
   # GET /documents/1/edit

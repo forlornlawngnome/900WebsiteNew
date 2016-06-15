@@ -39,4 +39,42 @@
 		</ul>
 	</div>
 </div>
-
+<%@people.each do |person|%>
+	<div class="reveal small" id="person-<%=person.id%>" data-reveal>
+	  <h1><%=person.name%></h1>
+		  <div class="row">
+		  	<div class=" small-12 medium-6 columns">
+				<div class="media-object-section">
+					<div class="thumbnail">
+						<%=image_tag person.image, :width=>"100%"%>
+					</div>
+				</div>
+			</div>
+			<div class=" small-12 medium-6 columns">
+				<div class="media-object-section">
+					<table class="hover stack">
+						<tr>
+							<th width="40%">Member</th>
+							<td><%=person.year_start%>-<%=person.year_end%></td>
+						</tr>
+						<tr>
+							<th>Role on team</th>
+							<td><%=person.role.name%></td>
+						</tr>
+						<tr>
+							<th>Documents Published</th>
+							<td>
+								<%person.documents.order("date_published desc").each do |doc|%>
+									<%=doc.name%><small>(<%=doc.date_published.strftime("%m/%e/%y")%>)</small><br />
+								<%end%>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	  <button class="close-button" data-close aria-label="Close modal" type="button">
+	    <span aria-hidden="true">&times;</span>
+	  </button>
+	</div>
+<%end%>
