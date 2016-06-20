@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :users
+  get '/signup', :as=>"signup", :to=> "users#signup"
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
   resources :about_photos
   resources :schools
   get 'about/about_us'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160528184544) do
+ActiveRecord::Schema.define(version: 20160620181237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,12 +68,12 @@ ActiveRecord::Schema.define(version: 20160528184544) do
   create_table "competitions", force: :cascade do |t|
     t.string   "name"
     t.date     "date"
-    t.integer  "year_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "game_id"
   end
 
-  add_index "competitions", ["year_id"], name: "index_competitions_on_year_id", using: :btree
+  add_index "competitions", ["game_id"], name: "index_competitions_on_game_id", using: :btree
 
   create_table "content_types", force: :cascade do |t|
     t.string   "name"
@@ -191,10 +191,10 @@ ActiveRecord::Schema.define(version: 20160528184544) do
 
   create_table "robots", force: :cascade do |t|
     t.string   "name"
-    t.text     "descripton"
+    t.text     "description"
     t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "game_id"
   end
 
@@ -248,6 +248,14 @@ ActiveRecord::Schema.define(version: 20160528184544) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.boolean  "approved"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "years", force: :cascade do |t|
     t.date     "start_date"
     t.date     "end_date"
@@ -259,7 +267,6 @@ ActiveRecord::Schema.define(version: 20160528184544) do
   add_foreign_key "awards_competitions", "competitions"
   add_foreign_key "categories_posts", "categories"
   add_foreign_key "categories_posts", "posts"
-  add_foreign_key "competitions", "years"
   add_foreign_key "document_links", "documents"
   add_foreign_key "documents", "categories"
   add_foreign_key "documents_people", "documents"

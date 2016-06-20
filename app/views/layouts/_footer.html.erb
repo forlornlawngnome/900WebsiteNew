@@ -25,9 +25,12 @@
 				<div class="medium-6 large-expand columns show-for-medium">
 					<h5><u>Website</u></h5>
 					<dl>
-						<dt>Sign Up</dt>
-						<dt>Sign In</dt>
-						<dt>Log Out</dt>
+						<% if current_user %>
+						  	<dt><%= link_to "Logout", '/logout' %></dt>
+						<% else %>
+						  	<dt><%= link_to 'Login', '/login' %></dt>
+							<dt><%= link_to 'Sign Up', '/signup' %></dt>
+						<% end %>
 						<dt><%=link_to "About", about_site_path%></dt>
 					</dl>
 				</div>
