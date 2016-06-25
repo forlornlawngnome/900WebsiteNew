@@ -10,4 +10,9 @@ class Sponsor < ActiveRecord::Base
     sponsors = Year.current_year.sponsor_years.where(:sponsor_level=>institutional)
     sponsors.sort_by{|s| s.sponsor.name.downcase}
   end
+  def self.current_gold_sponsors
+    gold= SponsorLevel.where(:name=>"Gold").first
+    sponsors = Year.current_year.sponsor_years.where(:sponsor_level=>gold)
+    sponsors.sort_by{|s| s.sponsor.name.downcase}
+  end
 end

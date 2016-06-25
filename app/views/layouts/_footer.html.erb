@@ -1,5 +1,5 @@
 <div class="footer">
-	<div class="row align-center">
+	<div class="row align-center align-bottom">
 		<div class="small-1 columns">
 		</div>
 		<div class="small-10 columns ">
@@ -35,9 +35,16 @@
 					</dl>
 				</div>
 				<div class="small-12 medium-6 large-expand columns">
-					<h5><u>Sponsors</u></h5>
+					<h5><u>Institutional Sponsors</u></h5>
 					<dl>
 						<%Sponsor.current_institutional_sponsors.each do |sponsor_year|%>
+							<%sponsor = sponsor_year.sponsor%>
+							<dt><%=sponsor_name_link sponsor%></dt>
+						<%end%>
+					</dl>
+					<h5><u>Gold Sponsors</u></h5>
+					<dl>
+						<%Sponsor.current_gold_sponsors.each do |sponsor_year|%>
 							<%sponsor = sponsor_year.sponsor%>
 							<dt><%=sponsor_name_link sponsor%></dt>
 						<%end%>
@@ -45,6 +52,9 @@
 					</dl>
 				</div>
 			</div>
+		</div>
+		<div class="small-1 columns">
+			<a href="#top"><%=fa_icon "arrow-up"%> Top</a>
 		</div>
 	</div>
 	<br />
