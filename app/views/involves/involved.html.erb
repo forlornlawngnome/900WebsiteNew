@@ -2,32 +2,63 @@
 
 <div class="row align-justify">
 	<div class="columns callout small-12">
-		<div class="row title-bar align-justify">
+		<div class="row title-bar align-justify nomargin">
 			<div class="small-8 columns">
 				<h4>How Can I Get Involved?</h4>
 			</div>
-			<%if !current_user.nil?%>
-				<div class="small-4 columns">
-					<div class="text-right"><%=link_to fa_icon("plus"), new_involf_path%></div>
-				</div>
-			<%end%>
 		</div>
-		<%@blurbs.each do |blurb|%>
-			<%if !current_user.nil?%>
-				<div class="row">
-					<div class="columns">
-						<p><%=blurb.blurb.html_safe%></p>
-					</div>
-					<div class="shrink columns">
-						<%=link_to fa_icon("pencil"), edit_involf_path(blurb)%>
-					</div>
-					
-				</div>
-			<%else%>
-				<p>
-					<%=blurb.blurb.html_safe%>
-				</p>
-			<%end%>
-		<%end%>
+	</div>
+</div>
+
+<div class="row align-justify">
+	<div class="columns callout small-12">
+		<div class="row title-bar align-justify">
+			<div class="small-8 columns">
+				<h5>Potential Student</h5>
+			</div>
+		</div>
+		<p>Team 900 is an awesome opportunity. If you're interested in joining, we suggest you do these things:
+			<ul>
+				<li>Read the <%=link_to "team handbook", team_handbook_path%> - This is where we keep all the information you need to know about the team! </li>
+				<li>Sign up for our mailing list - The signup can be found on the homepage</li>
+				<li>Come to the next meeting! Check the <%=link_to "calendar", calendar_path%> for the latest dates</li>
+			</ul>
+		</p>
+		<p>If you have any questions, feel free to <a href="mailto:mentors@team900.org" target="_blank">send us an email at mentors@team900.org</a>.</p>
+	</div>
+</div>
+<div class="row align-justify">
+	<div class="columns callout small-12">
+		<div class="row title-bar align-justify">
+			<div class="small-8 columns">
+				<h5>Parent of a Potential Student</h5>
+			</div>
+		</div>
+		
+		<p>Start by reading the team handbook with your student and make sure this is the right program for them. Make sure you talk about the level of commitment and dedication to something larger. This is an amazing opportunity and awesome program to be a part of.</p>
+		<p>If you have any questions, feel free to <a href="mailto:mentors@team900.org" target="_blank">send us an email at mentors@team900.org</a>.</p>
+	</div>
+</div>
+<div class="row align-justify">
+	<div class="columns callout small-12">
+		<div class="row title-bar align-justify">
+			<div class="small-8 columns">
+				<h5>Parent of a Student</h5>
+			</div>
+		</div>
+		<p>Start by reading the team handbook and signing up for our mailing list. We know we've said it before, but there's lots of information in there!</p> 
+		<p>Since we have such long hours during build season, we like to have food availlable Fridays and Saturdays. An email will be sent out in the fall to create a meal schedule. Keep an eye out for these emails, and sign up to help where you can! Snacks and water are also welcome anytime, though we would appreciate an email so we can spread out the love. </p>
+		<p>Due to NCSSM's unique situation, we will sometimes need to host students at local parent's houses. Emails/Surveys will be sent out, so if you can help, please fill out the survey. </p>
+		<p>As always, if you have any questions, suggestions or concerns, <a href="mailto:mentors@team900.org" target="_blank">send us an email at mentors@team900.org</a>.</p>
+	</div>
+</div>
+<div class="row align-justify">
+	<div class="columns callout small-12">
+		<div class="row title-bar align-justify">
+			<div class="small-8 columns">
+				<h5>Potential Mentor/Sponsor</h5>
+			</div>
+		</div>
+		Are you interested in mentoring, donating something or sponsoring the team? <a href="mailto:mentors@team900.org" target="_blank">Send us an email at mentors@team900.org</a> and let us know what you have in mind!
 	</div>
 </div>
