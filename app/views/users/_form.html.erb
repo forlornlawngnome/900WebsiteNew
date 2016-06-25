@@ -10,23 +10,46 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :email, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.text_field :email%>
+      </div>
   </div>
- <%=f.label :password %>
-
- <%=f.password_field :password %>
-
- <%=f.label :password_confirmation %>
-
- <%=f.password_field :password_confirmation %>
-  <div class="field">
-    <%= f.label :approved %><br>
-    <%= f.check_box :approved %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :password, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.password_field :password%>
+      </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+		  <%= f.label :password_confirmation, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%=f.password_field :password_confirmation%>
+      </div>
+  </div>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+	  	  <fieldset class=" small-12 columns">
+			  <%=f.check_box :approved%>
+	  		  <%= f.label :approved, :class=>"text-right middle"%>
+		  </fieldset>
+      </div>
+  </div>
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.submit "Submit", :class=>"button expanded" %>
+      </div>
   </div>
 <% end %>

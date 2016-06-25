@@ -1,13 +1,38 @@
-<%=form_tag login_path do%>
-
-<%=label_tag :email %>
-
-<%=text_field_tag :email %>
-
-<%=label_tag :password %>
-
-<%=password_field_tag :password %>
-
-<%=submit_tag "Log in" %>
-
-<%end%>
+<div class="columns callout small-12">
+	<div class="row title-bar">
+		<h4>Log In</h4>
+	</div>
+	<%=form_tag login_path do %>
+	    <br />
+	    <div class="row">
+	  	  <div class="small-3 medium-2 columns">
+	  		  <%= label_tag :email, "Email", :class=>"text-right middle"%>
+	        </div>
+	        <div class="small-9 medium-10 columns">
+	  		  <%=text_field_tag :email%>
+	        </div>
+	    </div>
+	    <div class="row">
+	  	  <div class="small-3 medium-2 columns">
+	  		  <%= label_tag :password, "Password", :class=>"text-right middle"%>
+	        </div>
+	        <div class="small-9 medium-10 columns">
+	  		  <%=password_field_tag :password%>
+	        </div>
+	    </div>
+	    <div class="row">
+	  	  <div class="small-3 medium-2 columns">
+	        </div>
+	        <div class="small-9 medium-10 columns">
+	  		  <%= submit_tag "Log In", :class=>"button expanded" %>
+	        </div>
+	    </div>
+	<%end%>
+  	<div class="row">
+		<div class="small-3 medium-2 columns">
+		</div>
+		<div class="small-9 medium-10 columns">
+			<p class="text-right"><%= link_to 'Home', root_path %></p>
+		</div>
+  	</div>
+</div>
