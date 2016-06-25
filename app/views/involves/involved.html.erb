@@ -2,13 +2,32 @@
 
 <div class="row align-justify">
 	<div class="columns callout small-12">
-		<div class="row title-bar">
-			<h4>How can I get involved?</h4>
+		<div class="row title-bar align-justify">
+			<div class="small-8 columns">
+				<h4>How Can I Get Involved?</h4>
+			</div>
+			<%if !current_user.nil?%>
+				<div class="small-4 columns">
+					<div class="text-right"><%=link_to fa_icon("plus"), new_involf_path%></div>
+				</div>
+			<%end%>
 		</div>
 		<%@blurbs.each do |blurb|%>
-			<p>
-				<%=blurb.blurb.html_safe%>
-			</p>
+			<%if !current_user.nil?%>
+				<div class="row">
+					<div class="columns">
+						<p><%=blurb.blurb.html_safe%></p>
+					</div>
+					<div class="shrink columns">
+						<%=link_to fa_icon("pencil"), edit_involf_path(blurb)%>
+					</div>
+					
+				</div>
+			<%else%>
+				<p>
+					<%=blurb.blurb.html_safe%>
+				</p>
+			<%end%>
 		<%end%>
 	</div>
 </div>
