@@ -1,5 +1,6 @@
 class InvolvesController < ApplicationController
   before_action :set_involf, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :authorize, :only => [:involved]
 
   # GET /involves
   # GET /involves.json

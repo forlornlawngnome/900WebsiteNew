@@ -1,5 +1,6 @@
 class HandbooksController < ApplicationController
   before_action :set_handbook, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :authorize, :only => [:handbook]
 
   # GET /handbooks
   # GET /handbooks.json

@@ -1,4 +1,5 @@
 class AboutController < ApplicationController
+  skip_before_filter :authorize, :only => [:about_us, :about_site]
   def about_us
     @team_photo = AboutPhoto.where(:name=>"team_photo").first
     @who_are_we = AboutContent.where(:name=>"who").first

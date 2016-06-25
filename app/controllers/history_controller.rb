@@ -1,4 +1,6 @@
 class HistoryController < ApplicationController
+  skip_before_filter :authorize, :only => [:history, :awards]
+  
   def history
     
     @years = Year.order("start_date desc")
