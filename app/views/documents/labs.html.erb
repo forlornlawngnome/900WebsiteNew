@@ -1,8 +1,15 @@
 <br />
 <div class="row">
 	<div class="columns">
-		<div class="row title-bar nomargin">
-			<h3>Zebracorn Labs</h3>
+		<div class="row title-bar align-justify nomargin">
+			<div class="small-8 columns">
+				<h3>Zebracorn Labs</h3>
+			</div>
+			<%if !current_user.nil?%>
+				<div class="small-4 columns">
+					<div class="text-right"><%=link_to fa_icon("plus"), new_document_path%></div>
+				</div>
+			<%end%>
 		</div>
 	</div>
 </div>

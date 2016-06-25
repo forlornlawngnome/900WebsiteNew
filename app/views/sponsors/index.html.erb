@@ -11,6 +11,22 @@
 		</p>
 	</div>
 </div>
+<%if !current_user.nil?%>
+	<div class="row ">
+		<div class="columns callout">
+			<div class="row title-bar">
+				<h5>Add New Sponsors</h5>
+			</div>
+			<p>
+				Steps to add a new sponsor. If we have never had the sponsor before, skip to the second step
+				<ol>
+					<li><%=link_to "Create the new sponsor", new_sponsor_path%></li>
+					<li><%=link_to "Add the sponsor to this year", new_sponsor_year_path%></li>
+				</ol>
+			</p>
+		</div>
+	</div>
+<%end%>
 
 
 <%@sponsor_levels.each do |level|%>

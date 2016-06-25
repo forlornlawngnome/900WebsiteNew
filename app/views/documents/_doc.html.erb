@@ -1,8 +1,14 @@
 <div class="small-12 medium-5 large-3 columns callout nomargin ">
-	<div class="row title-bar">
-		<h5><b><%=doc.name%></b> <small><%=doc.date_published.strftime("%b %e, %Y")%></small></h5>
-	</div>
-	
+	<div class="row title-bar align-justify">
+		<div class="small-10 columns">
+			<h5><b><%=doc.name%></b> <br /><small><%=doc.date_published.strftime("%b %e, %Y")%></small></h5>
+		</div>
+		<%if !current_user.nil?%>
+			<div class="small-2 columns">
+				<div class="text-right"><%=link_to fa_icon("pencil"), edit_document_path(doc)%></div>
+			</div>
+		<%end%>
+	</div>	
 	<p>
 		<i>Author(s): 
 			<%first=true%>

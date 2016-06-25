@@ -72,8 +72,15 @@
 	<%end%>
 	<%if !@who_are_we.nil?%>
 		<div class="columns callout small-12">
-			<div class="row title-bar">
-				<h5><%=@who_are_we.title%></h5>
+			<div class="row title-bar align-justify">
+				<div class="small-8 columns">
+					<h5><%=@who_are_we.title%></h5>
+				</div>
+				<%if !current_user.nil?%>
+					<div class="small-4 columns">
+						<div class="text-right"><%=link_to fa_icon("pencil"), edit_about_content_path(@who_are_we)%></div>
+					</div>
+				<%end%>
 			</div>
 			<%=@who_are_we.content.html_safe%>
 		</div>
@@ -84,15 +91,29 @@
 	<%end%>
 	<%if !@location_info.nil?%>
 		<div class="columns callout small-6">
-			<div class="row title-bar">
-				<h5><%=@location_info.title%></h5>
+			<div class="row title-bar align-justify">
+				<div class="small-8 columns">
+					<h5><%=@location_info.title%></h5>
+				</div>
+				<%if !current_user.nil?%>
+					<div class="small-4 columns">
+						<div class="text-right"><%=link_to fa_icon("pencil"), edit_about_content_path(@location_info)%></div>
+					</div>
+				<%end%>
 			</div>
 			<%=@location_info.content.html_safe%>
 		</div>
 	<%end%>
 	<div class="columns callout small-6">
-		<div class="row title-bar">
-			<h5>Schools</h5>
+		<div class="row title-bar align-justify">
+			<div class="small-8 columns">
+				<h5>Schools</h5>
+			</div>
+			<%if !current_user.nil?%>
+				<div class="small-4 columns">
+					<div class="text-right"><%=link_to fa_icon("plus"), new_school_path%></div>
+				</div>
+			<%end%>
 		</div>
 		<%@schools.each do |school|%>
 			<li><%=school.name%></li>
@@ -104,8 +125,15 @@
 	<%end%>
 	<%if !@mascot_info.nil?%>
 		<div class="columns callout small-12">
-			<div class="row title-bar">
-				<h5><%=@mascot_info.title%></h5>
+			<div class="row title-bar align-justify">
+				<div class="small-8 columns">
+					<h5><%=@mascot_info.title%></h5>
+				</div>
+				<%if !current_user.nil?%>
+					<div class="small-4 columns">
+						<div class="text-right"><%=link_to fa_icon("pencil"), edit_about_content_path(@mascot_info)%></div>
+					</div>
+				<%end%>
 			</div>
 			<%=@mascot_info.content.html_safe%>
 		</div>

@@ -30,6 +30,11 @@
 		   	  <%@games.each do |game|%>
 		   		<li><%=link_to "#{game.year.range}: #{game.name}", history_path(game.name.camelcase)%></li>
 		   	  <%end%>
+			  <hr />
+			  <%if !current_user.nil?%>
+			  <li><%=link_to fa_icon("plus")+" Year", new_year_path%></li>
+			  	<li><%=link_to fa_icon("plus")+" Game", new_game_path%></li>
+			  <%end%>
 		   	</ul>
 
 		      </div>

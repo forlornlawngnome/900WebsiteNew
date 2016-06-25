@@ -8,8 +8,15 @@
 
 <div class="row align-justify">
 	<div class="columns callout small-12 medium-7">
-		<div class="row title-bar">
-			<h3><%=@game.year.range%> - <%=@game.name%></h3>
+		<div class="row title-bar align-justify">
+			<div class="small-8 columns">
+				<h3><%=@game.year.range%> - <%=@game.name%></h3>
+			</div>
+			<%if !current_user.nil?%>
+				<div class="small-4 columns">
+					<div class="text-right"><%=link_to fa_icon("pencil"), edit_game_path(@game)%></div>
+				</div>
+			<%end%>
 		</div>
 		<ul class="tabs" data-tabs id="video-tabs">
 			<%@game.game_videos.each_with_index do |video, i|%>
@@ -27,6 +34,9 @@
 					</li>
 				<%end%>
 			<%end%>
+			<li class="pull-right">
+				<%=link_to fa_icon("plus"), new_game_video_path%>
+			</li>
 		</ul>
 		<div class="tabs-content" data-tabs-content="video-tabs">
 			<%@game.game_videos.each_with_index do |video, i|%>
@@ -48,8 +58,15 @@
 	</div>
 	<%if !@game.strategy.nil? && !@game.strategy.empty?%>
 		<div class="columns callout small-12 medium-4">
-			<div class="row title-bar">
-				<h4>The Strategy</h4>
+			<div class="row title-bar align-justify">
+				<div class="small-8 columns">
+					<h4>The Strategy</h4>
+				</div>
+				<%if !current_user.nil?%>
+					<div class="small-4 columns">
+						<div class="text-right"><%=link_to fa_icon("pencil"), edit_game_path(@game)%></div>
+					</div>
+				<%end%>
 			</div>
 			<p><%=@game.strategy.html_safe%></p>
 		</div>
@@ -58,8 +75,15 @@
 <div class="row  align-justify">
 	<%if !@game.robot.nil?%>
 		<div class="columns callout">
-			<div class="row title-bar">
-				<h4><%=@game.robot.name%></h4>
+			<div class="row title-bar align-justify">
+				<div class="small-8 columns">
+					<h4><%=@game.robot.name%></h4>
+				</div>
+				<%if !current_user.nil?%>
+					<div class="small-4 columns">
+						<div class="text-right"><%=link_to fa_icon("pencil"), edit_robot_path(@game.robot)%></div>
+					</div>
+				<%end%>
 			</div>
 			<div class="row">
 				<div class="column small-12 medium-4">
@@ -70,13 +94,44 @@
 					<%=image_tag @game.robot.image.url%> 
 				</div>
 				<div class="column small-12 medium-4">
-					<h5><u>Competitions & Awards</u></h5>
+					<div class="row align-justify">
+						<div class="small-10 columns">
+							<h5><u>Competitions & Awards</u></h5>
+						</div>
+						<%if !current_user.nil?%>
+							<div class="small-2 columns">
+								<div class="text-right"><%=link_to fa_icon("plus"), new_competition_path%></div>
+							</div>
+						<%end%>
+					</div>
 					<dl>
 						<%@game.competitions.order("date asc").each do |competition|%>
-							<dt><%=competition.name%></dt>
+							<div class="row align-justify">
+								<div class="small-10 columns">
+									<dt><%=competition.name%></dt>
+								</div>
+								<%if !current_user.nil?%>
+									<div class="small-2 columns">
+										<div class="text-right"><%=link_to fa_icon("plus"), new_awards_competition_path%></div>
+									</div>
+								<%end%>
+							</div>
+							
 							<%competition.awards_competitions.each do |award_comp|%>
 								<dd>
-									<li><span data-tooltip aria-haspopup="true" class="has-tip no-bold" data-disable-hover="false" tabindex="1" title="<%="#{award_comp.blurb}"%>"><%=award_comp.award.name%></span><span data-tooltip aria-haspopup="true" class="has-tip no-bold" data-disable-hover="false" tabindex="1" title="<%=award_comp.award.description%>"><sup><%=fa_icon "question"%></sup></span></li>
+									<li>
+										<span data-tooltip aria-haspopup="true" class="has-tip no-bold" data-disable-hover="false" tabindex="1" title="<%="#{award_comp.blurb}"%>">
+											<%=award_comp.award.name%>
+										</span>
+										<span data-tooltip aria-haspopup="true" class="has-tip no-bold" data-disable-hover="false" tabindex="1" title="<%=award_comp.award.description%>">
+											<sup>
+												<%=fa_icon "question"%>
+											</sup>
+										</span>
+										<span class="pull-right">
+											<%=link_to fa_icon("pencil"), edit_awards_competition_path(award_comp)%>
+										</span>
+									</li>
 								</dd>
 							<%end%>
 						<%end%>
@@ -84,13 +139,27 @@
 				</div>
 			</div>
 		</div>
+	<%elsif !current_user.nil?%>
+		<div class="columns callout">
+			<div class="row title-bar">
+				<h4>Robot</h4>
+			</div>
+			<p>No robot has been added. <%=link_to "Create one?", new_robot_path%></p>
+		</div>
 	<%end%>
 </div>
 <div class="row  align-justify">
 	<%if !@sponsors_by_level.empty?%>
 		<div class="columns callout">
-			<div class="row title-bar">
-				<h4>Our Sponsors</h4>
+			<div class="row title-bar align-justify">
+				<div class="small-10 columns">
+					<h4>Our Sponsors</h4>
+				</div>
+				<%if !current_user.nil?%>
+					<div class="small-2 columns">
+						<div class="text-right"><%=link_to fa_icon("plus"), new_sponsor_path%></div>
+					</div>
+				<%end%>
 			</div>
 			<%@sponsors_by_level.each do |sponsor_level|%>
 				<h5><b><%=sponsor_level[0].name%></b></h5>

@@ -1,8 +1,15 @@
 <br />
 <div class="row">
 	<div class="columns">
-		<div class="row title-bar nomargin">
-			<h3>News</h3>
+		<div class="row title-bar align-justify">
+			<div class="small-8 columns">
+				<h5>News!</h5>
+			</div>
+			<%if !current_user.nil?%>
+				<div class="small-4 columns">
+					<div class="text-right"><%=link_to fa_icon("plus"), new_post_path%></div>
+				</div>
+			<%end%>
 		</div>
 	</div>
 </div>
@@ -19,8 +26,15 @@
 	</div>
 	<div class="small-12 medium-3 columns">
 		<div class="small-12 columns callout">
-			<div class="row title-bar">
-				<h5>Categories</h5>
+			<div class="row title-bar align-justify">
+				<div class="small-8 columns">
+					<h5>Categories</h5>
+				</div>
+				<%if !current_user.nil?%>
+					<div class="small-4 columns">
+						<div class="text-right"><%=link_to fa_icon("plus"), new_category_path%></div>
+					</div>
+				<%end%>
 			</div>
 			<ul>
 				<li><%=link_to "All", news_path%></li>

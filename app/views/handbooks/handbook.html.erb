@@ -1,8 +1,16 @@
 <div class="row">
 	<div class="small-12 medium-expand columns callout">
-		<div class="row title-bar">
-			<h5>The Handbook</h5>
+		<div class="row title-bar align-justify">
+			<div class="small-8 columns">
+				<h5>The Handbook</h5>
+			</div>
+			<%if !current_user.nil?%>
+				<div class="small-4 columns">
+					<div class="text-right"><%=link_to fa_icon("pencil"), edit_handbook_path(Handbook.latest)%></div>
+				</div>
+			<%end%>
 		</div>
+
 		<%if !Handbook.latest.nil?%>
 			<%=Handbook.latest.about.html_safe%>
 		<%else%>
@@ -23,12 +31,30 @@
 
 <div class="row">
 	<div class="small-12 columns callout">
-		<div class="row title-bar">
-			<h5>The Forms</h5>
+		<div class="row title-bar align-justify">
+			<div class="small-8 columns">
+				<h5>The Forms</h5>
+			</div>
+			<%if !current_user.nil?%>
+				<div class="small-4 columns">
+					<div class="text-right"><%=link_to fa_icon("plus"), new_form_path%></div>
+				</div>
+			<%end%>
 		</div>
+
 		<ul>
 			<%Form.order("name").each do |form|%>
-				<li><%=link_to form.name, form.form_url, :target=>"_blank"%></li>
+				<div class="row align-justify">
+					<div class="small-10 columns">
+						<li><%=link_to form.name, form.form_url, :target=>"_blank"%></li>
+					</div>
+					<%if !current_user.nil?%>
+						<div class="small-2 columns">
+							<div class="text-right"><%=link_to fa_icon("pencil"), edit_form_path(form)%></div>
+						</div>
+					<%end%>
+				</div>
+				
 			<%end%>
 		</ul>
 	</div>
