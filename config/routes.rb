@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  
+  get '/admin' => 'admin#admin'
   resources :about_photos
   resources :schools
   get 'about/about_us'

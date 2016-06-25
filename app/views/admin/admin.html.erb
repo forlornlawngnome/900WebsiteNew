@@ -1,0 +1,23 @@
+<div class="columns callout small-12">
+	<div class="row title-bar">
+		<h4>Admin Page</h4>
+	</div>
+	<table class="hover">
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+	      <th>New</th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	    <% @obj_types.each do |type| %>
+		<%model_name = type.to_s.underscore%>
+	      <tr>
+	        <td><%= link_to type.name.titleize.pluralize, send("#{model_name.pluralize}_path") %></td>
+	        <td><%= link_to fa_icon("plus"), new_polymorphic_path(type.new)%></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+</div>

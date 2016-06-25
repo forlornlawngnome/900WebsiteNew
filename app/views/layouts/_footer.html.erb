@@ -7,25 +7,17 @@
 				<div class="small-12 medium-6 large-expand columns">
 					<h5><u>Social Media</u></h5>
 					<dl>
+						<dt><%=link_to "News", news_path%></a></dt>
 						<%SocialMediaLink.all.order(:order).each do |media|%>
 							<dt><a href=<%=media.media_url%> target="_blank"><span><%=media.name.titleize%></span></a></dt>
 						<%end%>
 					</dl>
 				</div>
 				<div class="medium-6 large-expand columns show-for-medium">
-					<h5><u>Media</u></h5>
-					<dl>
-						<dt><%=link_to "News", news_path%></a></dt>
-			 			<%photos = SocialMediaLink.where("lower(name) = 'photos'").first%>
-			 			<dt><%=link_to photos.name, photos.media_url, :target=>"_blank" rescue ""%></dt>
-			 			<%youtube = SocialMediaLink.where("lower(name) = 'youtube'").first%>
-			 			<dt><%=link_to youtube.name, youtube.media_url, :target=>"_blank" rescue ""%></dt>
-					</dl>
-				</div>
-				<div class="medium-6 large-expand columns show-for-medium">
 					<h5><u>Website</u></h5>
 					<dl>
 						<% if current_user %>
+							<dt><%= link_to "Admin Page", '/admin' %></dt>
 						  	<dt><%= link_to "Logout", '/logout' %></dt>
 						<% else %>
 						  	<dt><%= link_to 'Login', '/login' %></dt>
@@ -42,18 +34,21 @@
 							<dt><%=sponsor_name_link sponsor%></dt>
 						<%end%>
 					</dl>
+				</div>
+				<div class="medium-6 large-expand columns">
 					<h5><u>Gold Sponsors</u></h5>
 					<dl>
 						<%Sponsor.current_gold_sponsors.each do |sponsor_year|%>
 							<%sponsor = sponsor_year.sponsor%>
 							<dt><%=sponsor_name_link sponsor%></dt>
 						<%end%>
+						<hr />
 						<dt><%=link_to "#{fa_icon('caret-right')} All Sponsors".html_safe, sponsors_path%></dt>
 					</dl>
 				</div>
 			</div>
 		</div>
-		<div class="small-1 columns">
+		<div class="small-12 medium-1 columns">
 			<a href="#top"><%=fa_icon "arrow-up"%> Top</a>
 		</div>
 	</div>
