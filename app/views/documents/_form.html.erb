@@ -48,9 +48,13 @@
 		  <%= f.label "Authors", :class=>"text-right middle"%>
       </div>
       <div class="small-9 medium-10 columns">
-		  <%= f.collection_check_boxes(:person_ids, Person.all, :id, :name, checked: @document.people.map(&:id)) do |b| %>    
-		      <%= b.check_box %> <%= b.label %>
-		  <% end %>
+		  <div class="row small-up-1 medium-up-2 large-up-3">
+			  <%= f.collection_check_boxes(:person_ids, Person.order("name"), :id, :name, checked: @document.people.map(&:id)) do |b| %>    
+			      <div class="column">
+					  <%= b.check_box %> <%= b.label %>
+				  </div>
+			  <% end %>
+		  </div>
       </div>
   </div>
   <%= f.fields_for :document_links do |builder| %>
