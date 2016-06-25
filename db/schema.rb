@@ -146,13 +146,6 @@ ActiveRecord::Schema.define(version: 20160620181237) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "involves", force: :cascade do |t|
-    t.text     "blurb"
-    t.integer  "order"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "people", force: :cascade do |t|
     t.string   "name"
     t.integer  "role_id"
