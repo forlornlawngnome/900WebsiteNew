@@ -1,50 +1,68 @@
 <% title "Labs" %>
+
 <br />
-<div class="row">
-	<div class="columns">
-		<div class="row title-bar align-justify nomargin">
-			<div class="small-8 columns">
-				<h3>Zebracorn Labs</h3>
+<div class="columns callout small-12">
+	<div class="row title-bar align-justify">
+		<div class="small-8 columns">
+			<h5>Zebracorn Labs</h5>
+		</div>
+		<%if !current_user.nil?%>
+			<div class="small-4 columns">
+				<div class="text-right"><%=link_to fa_icon("plus"), new_document_path%></div>
 			</div>
-			<%if !current_user.nil?%>
-				<div class="small-4 columns">
-					<div class="text-right"><%=link_to fa_icon("plus"), new_document_path%></div>
-				</div>
+		<%end%>
+	</div>
+	<div class="">
+     	Here at the Zebracorns, we believe in learning and pushing boundaries. In persuit of that, we have publish papers, give talks and have other tidbits of knowledge lying around. We hope you enjoy these as much as we do.  
+	</div>
+</div>
+<div class="row">
+	<div class="small-12 medium-9 columns">
+		<div style="margin-top:1rem" class="text-center">
+			<%= paginate @documents %>
+		</div>
+		<div class="row align-spaced">
+			<%@documents.each do |doc|%>
+				<%=render "/documents/doc", :doc=>doc%>
 			<%end%>
 		</div>
 	</div>
-</div>
-<div style="margin-top:1rem" class="text-center">
-	<div class="row">
-		<ul class="accordion small-12 columns" data-accordion >
-		  <li class="accordion-item is-active" data-accordion-item>
-		    <div class="accordion-content text-left white-background" data-tab-content>
-				<div class="">
-			     	Here at the Zebracorns, we believe in learning and pushing boundaries. In persuit of that, we have published several papers, given several talks and have some tidbits lying around. We hope you enjoy these as much as we have.  
+	<div class="small-12 medium-3 columns">
+		<div class="small-12 columns callout">
+			<div class="row title-bar align-justify">
+				<div class="small-8 columns">
+					<h5>Categories</h5>
 				</div>
-		    </div>
-		  </li>
-		</ul>
-	</div>
-</div>
-
-
-<div class="row">
-	<div class=" small-12 columns">
-		<ul class="accordion" data-accordion  data-multi-expand="true"  data-allow-all-closed="true">
-			<%@categories.each do |cat|%>
-				<li class="accordion-item is-active" data-accordion-item>
-					<a href="#" class="accordion-title"><h5><%=cat.name%></h5></a>
-					<div class="accordion-content" data-tab-content>
-						<div class="row align-justify">
-							<%cat.documents.order("date_published desc").each do |doc|%>
-								<%=render "/documents/doc", :doc=>doc%>
-							<%end%>
-						</div>
+				<%if !current_user.nil?%>
+					<div class="small-4 columns">
+						<div class="text-right"><%=link_to fa_icon("plus"), new_category_path%></div>
 					</div>
-				</li>
-			<%end%>
-		</ul>
+				<%end%>
+			</div>
+			<ul>
+				<li><%=link_to "All", labs_path%></li>
+				<%@categories.each do |cat|%>
+					<li><%=category_link(cat)%></li>
+				<%end%>
+			</ul>
+		</div>
+		<div class="small-12 columns callout">
+			<div class="row title-bar">
+				<h5>Archive</h5>
+			</div>
+			<dl>
+				<%@range.each do |years|%>
+					<dt><%=years[0].year%></dt>
+					<%years[1].each do |months|%>
+						<%doc = months[1].first%>
+						<%count = Document.where("date_published >=?", doc.date_published).count%>
+						<%page = count/10+1%>
+						<dd><i><%=link_to months[0].strftime("%B"), labs_path+"?q[date_published_lteq]=#{months[1].first.date_published}"%></i></dd>
+					<%end%>
+				<%end%>
+				
+			</dl>
+		</div>
 	</div>
 </div>
 <%@people.each do |person|%>

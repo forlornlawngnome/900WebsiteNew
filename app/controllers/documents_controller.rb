@@ -21,6 +21,13 @@ class DocumentsController < ApplicationController
   def labs
     @categories =Category.joins(:documents).order("name").uniq.all
     @people = Person.all
+    
+    @search = Document.search(params[:q])
+    @documents = @search.result.order("date_published desc").page params[:page]
+    first_doc = Document.order("date_published").limit(1).first
+    docs = Document.order("date_published desc").all
+    month_range = docs.group_by {|p| p.date_published.beginning_of_month}
+    @range = month_range.group_by { |d| d[0].beginning_of_year}
   end
 
   # GET /documents/1/edit

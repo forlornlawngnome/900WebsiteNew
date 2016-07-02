@@ -1,4 +1,6 @@
 class Document < ActiveRecord::Base
+  paginates_per 10
+  
   belongs_to :category
   has_many :document_links
   has_and_belongs_to_many :people
