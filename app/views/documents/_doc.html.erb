@@ -1,7 +1,13 @@
 <div class="small-12 large-11 columns callout  ">
 	<div class="row title-bar align-justify">
 		<div class="small-10 columns">
-			<h5><b><%=doc.name%></b> <br /><small><%=doc.date_published.strftime("%b %e, %Y")%></small></h5>
+			<h5>
+				<b><%=doc.name%></b><small>&nbsp &nbsp<%=fa_icon "tag"%> <%=category_link_docs(doc.category)%></small> 
+				<br />
+				<small>
+					<%=doc.date_published.strftime("%b %e, %Y")%> 
+				</small>
+			</h5>
 		</div>
 		<%if !current_user.nil?%>
 			<div class="small-2 columns">
