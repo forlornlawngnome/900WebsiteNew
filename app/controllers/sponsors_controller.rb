@@ -10,7 +10,7 @@ class SponsorsController < ApplicationController
       sponsors = @year.sponsor_years.group_by{ |sponsor| sponsor.sponsor_level}
       @sponsor_levels = sponsors.sort_by{ |order| order[0].order}
     end
-    @sponsor_levels = nil
+    @sponsor_levels = SponsorLevel.all
   end
   
   #GET /sponsors/all
