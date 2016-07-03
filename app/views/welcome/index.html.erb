@@ -22,7 +22,9 @@
 				</div>
 			<%end%>
 		</div>
-		<%=render "posts/individual_post", :post=>@post%>
+		<%if !@post.nil?%>
+			<%=render "posts/individual_post", :post=>@post%>
+		<%end%>
 	</div>
 </div>
 
