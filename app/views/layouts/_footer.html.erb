@@ -30,9 +30,12 @@
 					<div style="flex: 1 100%;">
 						<h5><u>Institutional Sponsors</u></h5>
 						<dl>
-							<%Sponsor.current_institutional_sponsors.each do |sponsor_year|%>
-								<%sponsor = sponsor_year.sponsor%>
-								<dt><%=sponsor_name_link sponsor%></dt>
+							<%institutional_sponsors = Sponsor.current_institutional_sponsors%>
+							<%if !institutional_sponsors.nil?%>
+								<%institutional_sponsors.each do |sponsor_year|%>
+									<%sponsor = sponsor_year.sponsor%>
+									<dt><%=sponsor_name_link sponsor%></dt>
+								<%end%>
 							<%end%>
 						</dl>
 					</div>
@@ -46,9 +49,12 @@
 					<div style="flex: 1 100%;">
 						<h5><u>Gold Sponsors</u></h5>
 						<dl>
-							<%Sponsor.current_gold_sponsors.each do |sponsor_year|%>
-								<%sponsor = sponsor_year.sponsor%>
-								<dt><%=sponsor_name_link sponsor%></dt>
+							<%gold_sponsors = Sponsor.current_gold_sponsors%>
+							<%if !gold_sponsors.nil?%>
+								<%gold_sponsors.each do |sponsor_year|%>
+									<%sponsor = sponsor_year.sponsor%>
+									<dt><%=sponsor_name_link sponsor%></dt>
+								<%end%>
 							<%end%>
 						</dl>
 					</div>
