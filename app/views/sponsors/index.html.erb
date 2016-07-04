@@ -36,7 +36,7 @@
 				<h5><b><%=level.name rescue ""%></b></h5>
 			</div>
 			<div class="row small-up-1 medium-up-<%=level.order+1%>">
-				<%sponsors = level.sponsors.sort_by{|s| s.sponsor.name.downcase}%>
+				<%sponsors = level.sponsors.sort_by{|s| s.name.downcase}%>
 				<%sponsors.each do |sponsor_year|%>
 					<%sponsor = sponsor_year.sponsor%>
 					<div class="column">
