@@ -9,14 +9,15 @@ class HistoryController < ApplicationController
       @game = Game.where(:name=>params[:game]).first
       @sponsors_by_level = @game.year.sponsor_years.group_by{ |sponsor| sponsor.sponsor_level}.sort_by{ |order| order[0].order}
       #doesn't render normal page layout
-    elsif !Year.current_year.nil?
-      @game = Year.current_year.game
-      @sponsors_by_level = @game.year.sponsor_years.group_by{ |sponsor| sponsor.sponsor_level}.sort_by{ |order| order[0].order}
-      #doesn't render normal page layout
-    else
-      @game = Game.first
-      @sponsors_by_level = Sponsor.all
-      #doesn't render normal page layout
+    else 
+      year = Year.current_year
+      if year.nil? || year.game.nil?
+        @game = Game.joins(:year).order("start_date desc").first
+        @sponsors_by_level = year.sponsor_years.group_by{ |sponsor| sponsor.sponsor_level}.sort_by{ |order| order[0].order}
+      else
+        @game = year.game
+        @sponsors_by_level = year.sponsor_years.group_by{ |sponsor| sponsor.sponsor_level}.sort_by{ |order| order[0].order}
+      end
     end
     #doesn't render normal page layout
     render layout: false
