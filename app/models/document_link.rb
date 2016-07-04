@@ -1,5 +1,5 @@
 class DocumentLink < ActiveRecord::Base
   belongs_to :document
   
-  validates_presence_of :name, :document_id, :doc_link
+  validates_presence_of :name, :doc_link
 end
