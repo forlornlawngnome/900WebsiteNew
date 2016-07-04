@@ -30,12 +30,12 @@
 	</div>
 <%end%>
 
-
+<%=@sponsor_levels.inspect%>
 <%@sponsor_levels.each do |level|%>
 	<div class="row ">
 		<div class="columns callout">
 			<div class="row title-bar">
-				<h5><b><%=level[0].name%></b></h5>
+				<h5><b><%=level[0].name rescue ""%></b></h5>
 			</div>
 			<div class="row small-up-1 medium-up-<%=level[0].order+1%>">
 				<%sponsors = level[1].sort_by{|s| s.sponsor.name.downcase}%>
