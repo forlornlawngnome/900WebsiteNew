@@ -29,18 +29,20 @@
 		</div>
 	</div>
 <%end%>
+
+
 <%@sponsor_levels.each do |level|%>
 	<div class="row ">
 		<div class="columns callout">
 			<div class="row title-bar">
-				<h5><b><%=level.name rescue ""%></b></h5>
+				<h5><b><%=level[0].name%></b></h5>
 			</div>
-			<div class="row small-up-1 medium-up-<%=level.order+1%>">
-				<%sponsors = level.sponsor_years.sort_by{|s| s.sponsor.name.downcase}%>
+			<div class="row small-up-1 medium-up-<%=level[0].order+1%>">
+				<%sponsors = level[1].sort_by{|s| s.sponsor.name.downcase}%>
 				<%sponsors.each do |sponsor_year|%>
 					<%sponsor = sponsor_year.sponsor%>
 					<div class="column">
-						<%if level.order <= 2%>
+						<%if level[0].order <= 2%>
 							<%if sponsor.logo_link? %>
 								<%=sponsor_logo_link sponsor%>
 							<%else%>
