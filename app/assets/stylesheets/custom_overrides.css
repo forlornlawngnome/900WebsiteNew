@@ -59,7 +59,7 @@ padding: 0 !important;
 }
 
 .background {
-    background-image: url('/assets/zebra-background.svg') ;
+    background-image: image-url('zebra-background.svg') ;
     width: 100%;
      top: 0;
      left: 0;
