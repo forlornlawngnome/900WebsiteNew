@@ -90,20 +90,20 @@
 					<%end%>
 				</div>
 				<div class="row">
-					<div class="column small-12 medium-4">
+					<div class="column small-12 medium-12">
+						<%=image_tag @game.robot.image.url%> 
+					</div>
+					<div class="column small-12 medium-6">
 						<h5><u>Description</u></h5>
 						<%=@game.robot.description.html_safe%>
 					</div>
-					<div class="column small-12 medium-4">
-						<%=image_tag @game.robot.image.url%> 
-					</div>
-					<div class="column small-12 medium-4">
+					<div class="column small-12 medium-6">
 						<div class="row align-justify">
-							<div class="small-10 columns">
+							<div class="small-12 medium-expand columns">
 								<h5><u>Competitions & Awards</u></h5>
 							</div>
 							<%if !current_user.nil?%>
-								<div class="small-2 columns">
+								<div class="shrink columns">
 									<div class="text-right"><%=link_to fa_icon("plus"), new_competition_path%></div>
 								</div>
 							<%end%>
@@ -111,11 +111,11 @@
 						<dl>
 							<%@game.competitions.order("date asc").each do |competition|%>
 								<div class="row align-justify">
-									<div class="small-10 columns">
+									<div class="small-12 medium-expand columns">
 										<dt><%=competition.name%></dt>
 									</div>
 									<%if !current_user.nil?%>
-										<div class="small-2 columns">
+										<div class="shrink columns">
 											<div class="text-right"><%=link_to fa_icon("plus"), new_awards_competition_path%></div>
 										</div>
 									<%end%>
@@ -124,9 +124,13 @@
 								<%competition.awards_competitions.each do |award_comp|%>
 									<dd>
 										<li>
-											<span data-tooltip aria-haspopup="true" class="has-tip no-bold" data-disable-hover="false" tabindex="1" title="<%="#{award_comp.blurb}"%>">
+											<%if !award_comp.blurb.empty?%>
+												<span data-tooltip aria-haspopup="true" class="has-tip no-bold" data-disable-hover="false" tabindex="1" title="<%="#{award_comp.blurb}"%>">
+													<%=award_comp.award.name%>
+												</span>
+											<%else%>
 												<%=award_comp.award.name%>
-											</span>
+											<%end%>
 											<span data-tooltip aria-haspopup="true" class="has-tip no-bold" data-disable-hover="false" tabindex="1" title="<%=award_comp.award.description%>">
 												<sup>
 													<%=fa_icon "question"%>
