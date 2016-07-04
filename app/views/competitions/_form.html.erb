@@ -25,7 +25,7 @@
 		  <%= f.label :game_id, :class=>"text-right middle"%>
       </div>
       <div class="small-9 medium-10 columns">
-		  <%= f.collection_select(:game_id, Game.order("name"), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+		  <%= f.collection_select(:game_id, Game.joins(:year).order("start_date desc"), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
       </div>
   </div>
   <br />
