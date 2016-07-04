@@ -22,6 +22,15 @@
   <br />
   <div class="row">
 	  <div class="small-3 medium-2 columns">
+		  <%= f.label :game_id, :class=>"text-right middle"%>
+      </div>
+      <div class="small-9 medium-10 columns">
+		  <%= f.collection_select(:game_id, Game.order("name"), :id, :name, {:prompt=>true}, {:class=>'my-custom-class'}) %>
+      </div>
+  </div>
+  <br />
+  <div class="row">
+	  <div class="small-3 medium-2 columns">
 		  <%= f.label :date, :class=>"text-right middle"%>
       </div>
       <div class="small-9 medium-10 columns">

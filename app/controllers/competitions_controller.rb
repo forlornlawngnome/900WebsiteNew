@@ -4,7 +4,7 @@ class CompetitionsController < ApplicationController
   # GET /competitions
   # GET /competitions.json
   def index
-    @competitions = Competition.all
+    @competitions = Competition.order("date desc")
   end
 
   # GET /competitions/1
@@ -69,9 +69,6 @@ class CompetitionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def competition_params
-      date = Date.new(params[:competition]["date(1i)"].to_i, params[:competition]["date(2i)"].to_i, params[:competition]["date(3i)"].to_i)
-      year = Year.find_year(date)
-      game = year.game
-      params.require(:competition).permit(:name, :date, :game_id).merge(game_id: game.id)
+      params.require(:competition).permit(:name, :date, :game_id)
     end
 end
