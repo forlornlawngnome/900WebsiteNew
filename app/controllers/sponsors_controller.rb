@@ -6,12 +6,12 @@ class SponsorsController < ApplicationController
   # GET /sponsors.json
   def index
     @year = Year.current_year
-    raise @year.inspect
     if !@year.nil?
       sponsors = @year.sponsor_years.group_by{ |sponsor| sponsor.sponsor_level}
       @sponsor_levels = sponsors.sort_by{ |order| order[0].order}
+    else
+      @sponsor_levels = SponsorLevel.all
     end
-    @sponsor_levels = SponsorLevel.all
   end
   
   #GET /sponsors/all
