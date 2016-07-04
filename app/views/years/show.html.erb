@@ -19,7 +19,7 @@
 			<th class="pull-right show-for-large">Game</th>
 			<th class="hide-for-large">Game</th>
 			<td>
-				<%= link_to @year.game.name, @year.game %>
+				<%= link_to @year.game.name, @year.game rescue ""%>
 			</td>
 		</tr>
 	</table>
