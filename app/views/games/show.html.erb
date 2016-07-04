@@ -26,7 +26,7 @@
 			<th class="pull-right show-for-large">Robot</th>
 			<th class="hide-for-large">Robot</th>
 			<td>
-				<%= link_to @game.robot.name, @game.robot %>
+				<%= link_to @game.robot.name, @game.robot rescue ""%>
 			</td>
 		</tr>
 	</table>
